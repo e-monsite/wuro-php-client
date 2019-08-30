@@ -162,10 +162,55 @@
           "description"
         ],
         "properties": {
+          "reference": {
+            "type": "string"
+          },
           "title": {
             "type": "string"
           },
           "description": {
+            "type": "string"
+          },
+          "product": {
+            "type": "object"
+          },
+          "category": {
+            "type": "object"
+          },
+          "image": {
+            "type": "string"
+          },
+          "price_ht": {
+            "type": "number"
+          },
+          "price_ttc": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "total_ht": {
+            "type": "number"
+          },
+          "tva": {
+            "type": "object"
+          },
+          "tva_rate": {
+            "type": "number"
+          },
+          "discount_ht": {
+            "type": "number"
+          },
+          "discount_type": {
+            "type": "string"
+          },
+          "page": {
+            "type": "number"
+          },
+          "order": {
+            "type": "number"
+          },
+          "url": {
             "type": "string"
           }
         }

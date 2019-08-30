@@ -285,7 +285,15 @@
             "type": "string"
           },
           "state": {
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "draft",
+              "waiting",
+              "paid",
+              "notpaid",
+              "late",
+              "inactive"
+            ]
           },
           "sale_date": {
             "type": "string"

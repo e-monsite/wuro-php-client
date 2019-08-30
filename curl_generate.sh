@@ -1,3 +1,4 @@
+# Pre-clean
 rm -Rf generated
 rm generated.zip
 
@@ -24,6 +25,12 @@ curl -X POST \
 
 unzip generated.zip -d generated/
 
+# Move file in root directory
 cp -Rf generated/SwaggerClient-php/* .
+
+# Post-clean
 rm -Rf generated
 rm generated.zip
+
+# No use of git_push script, clean it
+rm git_push.sh

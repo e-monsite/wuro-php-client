@@ -12,9 +12,9 @@ curl -X POST \
         "apiPackage": "Wuro",
         "variableNamingConvention": "snake_case",
         "invokerPackage": "Wuro\\Api",
-        "composerVendorName": "emonsite",
+        "composerVendorName": "e-monsite",
         "composerProjectName": "wuro-php-client",
-		"gitUserId": "rygilles",
+		"gitUserId": "e-monsite",
 		"gitRepoId": "wuro-php-client"
     },
     "lang": "php",

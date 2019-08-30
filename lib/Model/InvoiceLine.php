@@ -56,8 +56,23 @@ class InvoiceLine implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'title' => 'string',
-'description' => 'string'    ];
+        'reference' => 'string',
+'title' => 'string',
+'description' => 'string',
+'product' => 'object',
+'category' => 'object',
+'image' => 'string',
+'price_ht' => 'float',
+'price_ttc' => 'float',
+'quantity' => 'float',
+'total_ht' => 'float',
+'tva' => 'object',
+'tva_rate' => 'float',
+'discount_ht' => 'float',
+'discount_type' => 'string',
+'page' => 'float',
+'order' => 'float',
+'url' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +80,23 @@ class InvoiceLine implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'title' => null,
-'description' => null    ];
+        'reference' => null,
+'title' => null,
+'description' => null,
+'product' => null,
+'category' => null,
+'image' => null,
+'price_ht' => null,
+'price_ttc' => null,
+'quantity' => null,
+'total_ht' => null,
+'tva' => null,
+'tva_rate' => null,
+'discount_ht' => null,
+'discount_type' => null,
+'page' => null,
+'order' => null,
+'url' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +125,23 @@ class InvoiceLine implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'title' => 'title',
-'description' => 'description'    ];
+        'reference' => 'reference',
+'title' => 'title',
+'description' => 'description',
+'product' => 'product',
+'category' => 'category',
+'image' => 'image',
+'price_ht' => 'price_ht',
+'price_ttc' => 'price_ttc',
+'quantity' => 'quantity',
+'total_ht' => 'total_ht',
+'tva' => 'tva',
+'tva_rate' => 'tva_rate',
+'discount_ht' => 'discount_ht',
+'discount_type' => 'discount_type',
+'page' => 'page',
+'order' => 'order',
+'url' => 'url'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +149,23 @@ class InvoiceLine implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'title' => 'setTitle',
-'description' => 'setDescription'    ];
+        'reference' => 'setReference',
+'title' => 'setTitle',
+'description' => 'setDescription',
+'product' => 'setProduct',
+'category' => 'setCategory',
+'image' => 'setImage',
+'price_ht' => 'setPriceHt',
+'price_ttc' => 'setPriceTtc',
+'quantity' => 'setQuantity',
+'total_ht' => 'setTotalHt',
+'tva' => 'setTva',
+'tva_rate' => 'setTvaRate',
+'discount_ht' => 'setDiscountHt',
+'discount_type' => 'setDiscountType',
+'page' => 'setPage',
+'order' => 'setOrder',
+'url' => 'setUrl'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +173,23 @@ class InvoiceLine implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'title' => 'getTitle',
-'description' => 'getDescription'    ];
+        'reference' => 'getReference',
+'title' => 'getTitle',
+'description' => 'getDescription',
+'product' => 'getProduct',
+'category' => 'getCategory',
+'image' => 'getImage',
+'price_ht' => 'getPriceHt',
+'price_ttc' => 'getPriceTtc',
+'quantity' => 'getQuantity',
+'total_ht' => 'getTotalHt',
+'tva' => 'getTva',
+'tva_rate' => 'getTvaRate',
+'discount_ht' => 'getDiscountHt',
+'discount_type' => 'getDiscountType',
+'page' => 'getPage',
+'order' => 'getOrder',
+'url' => 'getUrl'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -174,8 +249,23 @@ class InvoiceLine implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['reference'] = isset($data['reference']) ? $data['reference'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['product'] = isset($data['product']) ? $data['product'] : null;
+        $this->container['category'] = isset($data['category']) ? $data['category'] : null;
+        $this->container['image'] = isset($data['image']) ? $data['image'] : null;
+        $this->container['price_ht'] = isset($data['price_ht']) ? $data['price_ht'] : null;
+        $this->container['price_ttc'] = isset($data['price_ttc']) ? $data['price_ttc'] : null;
+        $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
+        $this->container['total_ht'] = isset($data['total_ht']) ? $data['total_ht'] : null;
+        $this->container['tva'] = isset($data['tva']) ? $data['tva'] : null;
+        $this->container['tva_rate'] = isset($data['tva_rate']) ? $data['tva_rate'] : null;
+        $this->container['discount_ht'] = isset($data['discount_ht']) ? $data['discount_ht'] : null;
+        $this->container['discount_type'] = isset($data['discount_type']) ? $data['discount_type'] : null;
+        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
+        $this->container['order'] = isset($data['order']) ? $data['order'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -207,6 +297,30 @@ class InvoiceLine implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets reference
+     *
+     * @return string
+     */
+    public function getReference()
+    {
+        return $this->container['reference'];
+    }
+
+    /**
+     * Sets reference
+     *
+     * @param string $reference reference
+     *
+     * @return $this
+     */
+    public function setReference($reference)
+    {
+        $this->container['reference'] = $reference;
+
+        return $this;
+    }
 
     /**
      * Gets title
@@ -252,6 +366,342 @@ class InvoiceLine implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets product
+     *
+     * @return object
+     */
+    public function getProduct()
+    {
+        return $this->container['product'];
+    }
+
+    /**
+     * Sets product
+     *
+     * @param object $product product
+     *
+     * @return $this
+     */
+    public function setProduct($product)
+    {
+        $this->container['product'] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Gets category
+     *
+     * @return object
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param object $category category
+     *
+     * @return $this
+     */
+    public function setCategory($category)
+    {
+        $this->container['category'] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Gets image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->container['image'];
+    }
+
+    /**
+     * Sets image
+     *
+     * @param string $image image
+     *
+     * @return $this
+     */
+    public function setImage($image)
+    {
+        $this->container['image'] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Gets price_ht
+     *
+     * @return float
+     */
+    public function getPriceHt()
+    {
+        return $this->container['price_ht'];
+    }
+
+    /**
+     * Sets price_ht
+     *
+     * @param float $price_ht price_ht
+     *
+     * @return $this
+     */
+    public function setPriceHt($price_ht)
+    {
+        $this->container['price_ht'] = $price_ht;
+
+        return $this;
+    }
+
+    /**
+     * Gets price_ttc
+     *
+     * @return float
+     */
+    public function getPriceTtc()
+    {
+        return $this->container['price_ttc'];
+    }
+
+    /**
+     * Sets price_ttc
+     *
+     * @param float $price_ttc price_ttc
+     *
+     * @return $this
+     */
+    public function setPriceTtc($price_ttc)
+    {
+        $this->container['price_ttc'] = $price_ttc;
+
+        return $this;
+    }
+
+    /**
+     * Gets quantity
+     *
+     * @return float
+     */
+    public function getQuantity()
+    {
+        return $this->container['quantity'];
+    }
+
+    /**
+     * Sets quantity
+     *
+     * @param float $quantity quantity
+     *
+     * @return $this
+     */
+    public function setQuantity($quantity)
+    {
+        $this->container['quantity'] = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_ht
+     *
+     * @return float
+     */
+    public function getTotalHt()
+    {
+        return $this->container['total_ht'];
+    }
+
+    /**
+     * Sets total_ht
+     *
+     * @param float $total_ht total_ht
+     *
+     * @return $this
+     */
+    public function setTotalHt($total_ht)
+    {
+        $this->container['total_ht'] = $total_ht;
+
+        return $this;
+    }
+
+    /**
+     * Gets tva
+     *
+     * @return object
+     */
+    public function getTva()
+    {
+        return $this->container['tva'];
+    }
+
+    /**
+     * Sets tva
+     *
+     * @param object $tva tva
+     *
+     * @return $this
+     */
+    public function setTva($tva)
+    {
+        $this->container['tva'] = $tva;
+
+        return $this;
+    }
+
+    /**
+     * Gets tva_rate
+     *
+     * @return float
+     */
+    public function getTvaRate()
+    {
+        return $this->container['tva_rate'];
+    }
+
+    /**
+     * Sets tva_rate
+     *
+     * @param float $tva_rate tva_rate
+     *
+     * @return $this
+     */
+    public function setTvaRate($tva_rate)
+    {
+        $this->container['tva_rate'] = $tva_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets discount_ht
+     *
+     * @return float
+     */
+    public function getDiscountHt()
+    {
+        return $this->container['discount_ht'];
+    }
+
+    /**
+     * Sets discount_ht
+     *
+     * @param float $discount_ht discount_ht
+     *
+     * @return $this
+     */
+    public function setDiscountHt($discount_ht)
+    {
+        $this->container['discount_ht'] = $discount_ht;
+
+        return $this;
+    }
+
+    /**
+     * Gets discount_type
+     *
+     * @return string
+     */
+    public function getDiscountType()
+    {
+        return $this->container['discount_type'];
+    }
+
+    /**
+     * Sets discount_type
+     *
+     * @param string $discount_type discount_type
+     *
+     * @return $this
+     */
+    public function setDiscountType($discount_type)
+    {
+        $this->container['discount_type'] = $discount_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets page
+     *
+     * @return float
+     */
+    public function getPage()
+    {
+        return $this->container['page'];
+    }
+
+    /**
+     * Sets page
+     *
+     * @param float $page page
+     *
+     * @return $this
+     */
+    public function setPage($page)
+    {
+        $this->container['page'] = $page;
+
+        return $this;
+    }
+
+    /**
+     * Gets order
+     *
+     * @return float
+     */
+    public function getOrder()
+    {
+        return $this->container['order'];
+    }
+
+    /**
+     * Sets order
+     *
+     * @param float $order order
+     *
+     * @return $this
+     */
+    public function setOrder($order)
+    {
+        $this->container['order'] = $order;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string $url url
+     *
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }

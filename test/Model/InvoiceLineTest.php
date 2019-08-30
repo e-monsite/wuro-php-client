@@ -76,6 +76,13 @@ class InvoiceLineTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "reference"
+     */
+    public function testPropertyReference()
+    {
+    }
+
+    /**
      * Test attribute "title"
      */
     public function testPropertyTitle()
@@ -86,6 +93,104 @@ class InvoiceLineTest extends \PHPUnit_Framework_TestCase
      * Test attribute "description"
      */
     public function testPropertyDescription()
+    {
+    }
+
+    /**
+     * Test attribute "product"
+     */
+    public function testPropertyProduct()
+    {
+    }
+
+    /**
+     * Test attribute "category"
+     */
+    public function testPropertyCategory()
+    {
+    }
+
+    /**
+     * Test attribute "image"
+     */
+    public function testPropertyImage()
+    {
+    }
+
+    /**
+     * Test attribute "price_ht"
+     */
+    public function testPropertyPriceHt()
+    {
+    }
+
+    /**
+     * Test attribute "price_ttc"
+     */
+    public function testPropertyPriceTtc()
+    {
+    }
+
+    /**
+     * Test attribute "quantity"
+     */
+    public function testPropertyQuantity()
+    {
+    }
+
+    /**
+     * Test attribute "total_ht"
+     */
+    public function testPropertyTotalHt()
+    {
+    }
+
+    /**
+     * Test attribute "tva"
+     */
+    public function testPropertyTva()
+    {
+    }
+
+    /**
+     * Test attribute "tva_rate"
+     */
+    public function testPropertyTvaRate()
+    {
+    }
+
+    /**
+     * Test attribute "discount_ht"
+     */
+    public function testPropertyDiscountHt()
+    {
+    }
+
+    /**
+     * Test attribute "discount_type"
+     */
+    public function testPropertyDiscountType()
+    {
+    }
+
+    /**
+     * Test attribute "page"
+     */
+    public function testPropertyPage()
+    {
+    }
+
+    /**
+     * Test attribute "order"
+     */
+    public function testPropertyOrder()
+    {
+    }
+
+    /**
+     * Test attribute "url"
+     */
+    public function testPropertyUrl()
     {
     }
 }

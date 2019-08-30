@@ -20,11 +20,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/rygilles/wuro-php-client.git"
+      "url": "https://github.com/e-monsite/wuro-php-client.git"
     }
   ],
   "require": {
-    "rygilles/wuro-php-client": "*@dev"
+    "e-monsite/wuro-php-client": "*@dev"
   }
 }
 ```

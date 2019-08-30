@@ -1,0 +1,480 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Wuro API",
+    "description": "API de votre espace Wuro, connectez-vous sur https://wuro.pro,\ndans les paramètres de votre entreprise \"Développeurs (API)\",\ncréez une application avec un scope défini afin de demander un jeton d'accès\n(GET accessToken) avec vos identifiants",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://wuro.pro/api/v1"
+    },
+    {
+      "url": "https://api.fwattier.devawelty.com/v1/"
+    }
+  ],
+  "paths": {
+    "/accessToken": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "Get an access token for tierce dev",
+        "parameters": [
+          {
+            "name": "app_id",
+            "in": "query",
+            "description": "Application ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "app_secret",
+            "in": "query",
+            "description": "Application secret key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Access token response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessTokenResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Credentials error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/invoice": {
+      "post": {
+        "tags": [
+          "Invoices"
+        ],
+        "description": "Add a invoice",
+        "requestBody": {
+          "description": "invoice to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Invoice"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Invoice created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvoiceCreatedResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Invoice supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication information is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AccessTokenResponse": {
+        "required": [
+          "token",
+          "success"
+        ],
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "Access token"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "required": [
+          "success",
+          "error"
+        ],
+        "properties": {
+          "token": {
+            "type": "boolean",
+            "description": "Always false"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          }
+        }
+      },
+      "InvoiceLine": {
+        "type": "object",
+        "required": [
+          "title",
+          "description"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "Invoice": {
+        "type": "object",
+        "required": [
+          "title",
+          "client_name",
+          "invoice_lines"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "number": {
+            "type": "string"
+          },
+          "date": {
+            "type": "object"
+          },
+          "company": {
+            "type": "object"
+          },
+          "category": {
+            "type": "object"
+          },
+          "user": {
+            "type": "object"
+          },
+          "currency": {
+            "type": "object"
+          },
+          "payment_method": {
+            "type": "object"
+          },
+          "shipping": {
+            "type": "object"
+          },
+          "invoice_lines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InvoiceLine"
+            },
+            "minItems": 1
+          },
+          "display_expeditor": {
+            "type": "boolean"
+          },
+          "num_tva": {
+            "type": "string"
+          },
+          "client_code": {
+            "type": "string"
+          },
+          "analytical_code": {
+            "type": "string"
+          },
+          "currency_rate": {
+            "type": "string"
+          },
+          "payment_expiry_date": {
+            "type": "string"
+          },
+          "payment_date": {
+            "type": "string"
+          },
+          "payment_method_name": {
+            "type": "string"
+          },
+          "late_penalty_rate": {
+            "type": "number"
+          },
+          "shipping_total_ht": {
+            "type": "string"
+          },
+          "shipping_tva_rate": {
+            "type": "string"
+          },
+          "shipping_total_tva": {
+            "type": "number"
+          },
+          "shipping_method": {
+            "type": "string"
+          },
+          "discount_total_ht": {
+            "type": "string"
+          },
+          "discount_total_type": {
+            "type": "string"
+          },
+          "total_ht_nodiscount": {
+            "type": "number"
+          },
+          "total_ht": {
+            "type": "number"
+          },
+          "total_ttc": {
+            "type": "number"
+          },
+          "total_tva": {
+            "type": "number"
+          },
+          "VATRates": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "comment": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "sale_date": {
+            "type": "string"
+          },
+          "company_name": {
+            "type": "string"
+          },
+          "company_contact": {
+            "type": "string"
+          },
+          "company_siren": {
+            "type": "string"
+          },
+          "company_nic": {
+            "type": "string"
+          },
+          "company_share_capital": {
+            "type": "number"
+          },
+          "company_commercial_court": {
+            "type": "string"
+          },
+          "company_num_rcs": {
+            "type": "string"
+          },
+          "company_num_trade_directory": {
+            "type": "string"
+          },
+          "company_type": {
+            "type": "string"
+          },
+          "company_address": {
+            "type": "string"
+          },
+          "company_address_end": {
+            "type": "string"
+          },
+          "company_zip_code": {
+            "type": "string"
+          },
+          "company_city": {
+            "type": "string"
+          },
+          "company_country": {
+            "type": "string"
+          },
+          "company_phone": {
+            "type": "string"
+          },
+          "company_fax": {
+            "type": "string"
+          },
+          "company_email": {
+            "type": "string"
+          },
+          "company_cgv": {
+            "type": "string"
+          },
+          "company_include_cgv": {
+            "type": "boolean"
+          },
+          "client_name": {
+            "type": "string"
+          },
+          "client_contact": {
+            "type": "string"
+          },
+          "client_address": {
+            "type": "string"
+          },
+          "client_address_end": {
+            "type": "string"
+          },
+          "client_zip_code": {
+            "type": "string"
+          },
+          "client_city": {
+            "type": "string"
+          },
+          "client_country": {
+            "type": "string"
+          },
+          "client_phone": {
+            "type": "string"
+          },
+          "client_fax": {
+            "type": "string"
+          },
+          "client_email": {
+            "type": "string"
+          },
+          "client_tva": {
+            "type": "string"
+          },
+          "client_dom": {
+            "type": "boolean"
+          },
+          "delivery_name": {
+            "type": "string"
+          },
+          "delivery_contact": {
+            "type": "string"
+          },
+          "delivery_address": {
+            "type": "string"
+          },
+          "delivery_address_end": {
+            "type": "string"
+          },
+          "delivery_zip_code": {
+            "type": "string"
+          },
+          "delivery_city": {
+            "type": "string"
+          },
+          "delivery_country": {
+            "type": "string"
+          },
+          "delivery_phone": {
+            "type": "string"
+          },
+          "delivery_fax": {
+            "type": "string"
+          },
+          "delivery_email": {
+            "type": "string"
+          },
+          "displayRules": {
+            "type": "object"
+          },
+          "style": {
+            "type": "object"
+          },
+          "hasReduction": {
+            "type": "boolean"
+          },
+          "signature": {
+            "type": "object"
+          },
+          "external_file": {
+            "type": "string"
+          },
+          "external_url": {
+            "type": "string"
+          },
+          "payment_state": {
+            "type": "string"
+          },
+          "payments": {
+            "items": {
+              "type": "object"
+            }
+          },
+          "total_nettopay": {
+            "type": "number"
+          },
+          "fromquote": {
+            "type": "string"
+          },
+          "credit": {
+            "type": "boolean"
+          },
+          "acompte": {
+            "type": "boolean"
+          }
+        }
+      },
+      "InvoiceCreatedResponse": {
+        "required": [
+          "new_invoice",
+          "success"
+        ],
+        "properties": {
+          "new_invoice": {
+            "$ref": "#/components/schemas/Invoice"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  }
+}

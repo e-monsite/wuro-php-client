@@ -587,7 +587,28 @@ class Invoice implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    
+    const STATE_DRAFT = 'draft';
+const STATE_WAITING = 'waiting';
+const STATE_PAID = 'paid';
+const STATE_NOTPAID = 'notpaid';
+const STATE_LATE = 'late';
+const STATE_INACTIVE = 'inactive';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStateAllowableValues()
+    {
+        return [
+            self::STATE_DRAFT,
+self::STATE_WAITING,
+self::STATE_PAID,
+self::STATE_NOTPAID,
+self::STATE_LATE,
+self::STATE_INACTIVE,        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -709,6 +730,14 @@ class Invoice implements ModelInterface, ArrayAccess
         if ($this->container['invoice_lines'] === null) {
             $invalidProperties[] = "'invoice_lines' can't be null";
         }
+        $allowedValues = $this->getStateAllowableValues();
+        if (!is_null($this->container['state']) && !in_array($this->container['state'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'state', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['client_name'] === null) {
             $invalidProperties[] = "'client_name' can't be null";
         }
@@ -1538,6 +1567,15 @@ class Invoice implements ModelInterface, ArrayAccess
      */
     public function setState($state)
     {
+        $allowedValues = $this->getStateAllowableValues();
+        if (!is_null($state) && !in_array($state, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'state', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['state'] = $state;
 
         return $this;

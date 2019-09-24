@@ -64,6 +64,107 @@
         }
       }
     },
+    "/vat-rates": {
+      "get": {
+        "tags": [
+          "Miscellaneous"
+        ],
+        "description": "Available VAT rates",
+        "responses": {
+          "200": {
+            "description": "VAT rates response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VatRatesResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/company/{companyId}": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "description": "Get a company",
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Company UUID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Company response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Credentials error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/document-models": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "description": "Get logged account document models",
+        "responses": {
+          "200": {
+            "description": "Document models response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentModelsResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Credentials error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/invoice": {
       "post": {
         "tags": [
@@ -154,6 +255,113 @@
             "description": "Error message"
           }
         }
+      },
+      "VatRate": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "rate": {
+            "type": "number"
+          },
+          "__v": {
+            "type": "number"
+          }
+        }
+      },
+      "VatRatesResponse": {
+        "required": [
+          "vat_rates",
+          "success"
+        ],
+        "properties": {
+          "vat_rates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VatRate"
+            }
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "DocumentModelsResponse": {
+        "required": [
+          "documentModels",
+          "success"
+        ],
+        "properties": {
+          "documentModels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentModel"
+            }
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "DocumentModel": {
+        "type": "object",
+        "properties": {
+          "header": {
+            "type": "object",
+            "properties": {
+              "image": {
+                "type": "string"
+              },
+              "height": {
+                "type": "number"
+              },
+              "margin": {
+                "type": "number"
+              }
+            }
+          },
+          "footer": {
+            "type": "object",
+            "properties": {
+              "image": {
+                "type": "string"
+              },
+              "color": {
+                "type": "number"
+              },
+              "height": {
+                "type": "number"
+              },
+              "margin": {
+                "type": "number"
+              }
+            }
+          },
+          "_id": {
+            "type": "string"
+          },
+          "main_color": {
+            "type": "string"
+          },
+          "font_color": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "company": {
+            "type": "string"
+          }
+        }
+      },
+      "CompanyResponse": {
+        "type": "object"
       },
       "InvoiceLine": {
         "type": "object",
@@ -503,6 +711,9 @@
           },
           "acompte": {
             "type": "boolean"
+          },
+          "documentModel": {
+            "type": "string"
           }
         }
       },

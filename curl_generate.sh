@@ -25,6 +25,14 @@ curl -X POST \
 
 unzip generated.zip -d generated/
 
+# Remove old files
+rm composer.json
+rm phpunit.xml.dist
+rm README.md
+rm -Rf docs
+rm -Rf lib
+rm -Rf test
+
 # Move file in root directory
 cp -Rf generated/SwaggerClient-php/* .
 

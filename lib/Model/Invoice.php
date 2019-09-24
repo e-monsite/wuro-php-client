@@ -143,7 +143,8 @@ class Invoice implements ModelInterface, ArrayAccess
 'total_nettopay' => 'float',
 'fromquote' => 'string',
 'credit' => 'bool',
-'acompte' => 'bool'    ];
+'acompte' => 'bool',
+'document_model' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -238,7 +239,8 @@ class Invoice implements ModelInterface, ArrayAccess
 'total_nettopay' => null,
 'fromquote' => null,
 'credit' => null,
-'acompte' => null    ];
+'acompte' => null,
+'document_model' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -354,7 +356,8 @@ class Invoice implements ModelInterface, ArrayAccess
 'total_nettopay' => 'total_nettopay',
 'fromquote' => 'fromquote',
 'credit' => 'credit',
-'acompte' => 'acompte'    ];
+'acompte' => 'acompte',
+'document_model' => 'documentModel'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -449,7 +452,8 @@ class Invoice implements ModelInterface, ArrayAccess
 'total_nettopay' => 'setTotalNettopay',
 'fromquote' => 'setFromquote',
 'credit' => 'setCredit',
-'acompte' => 'setAcompte'    ];
+'acompte' => 'setAcompte',
+'document_model' => 'setDocumentModel'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -544,7 +548,8 @@ class Invoice implements ModelInterface, ArrayAccess
 'total_nettopay' => 'getTotalNettopay',
 'fromquote' => 'getFromquote',
 'credit' => 'getCredit',
-'acompte' => 'getAcompte'    ];
+'acompte' => 'getAcompte',
+'document_model' => 'getDocumentModel'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -713,6 +718,7 @@ self::STATE_INACTIVE,        ];
         $this->container['fromquote'] = isset($data['fromquote']) ? $data['fromquote'] : null;
         $this->container['credit'] = isset($data['credit']) ? $data['credit'] : null;
         $this->container['acompte'] = isset($data['acompte']) ? $data['acompte'] : null;
+        $this->container['document_model'] = isset($data['document_model']) ? $data['document_model'] : null;
     }
 
     /**
@@ -2873,6 +2879,30 @@ self::STATE_INACTIVE,        ];
     public function setAcompte($acompte)
     {
         $this->container['acompte'] = $acompte;
+
+        return $this;
+    }
+
+    /**
+     * Gets document_model
+     *
+     * @return string
+     */
+    public function getDocumentModel()
+    {
+        return $this->container['document_model'];
+    }
+
+    /**
+     * Sets document_model
+     *
+     * @param string $document_model document_model
+     *
+     * @return $this
+     */
+    public function setDocumentModel($document_model)
+    {
+        $this->container['document_model'] = $document_model;
 
         return $this;
     }

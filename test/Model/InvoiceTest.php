@@ -690,4 +690,11 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
     public function testPropertyAcompte()
     {
     }
+
+    /**
+     * Test attribute "document_model"
+     */
+    public function testPropertyDocumentModel()
+    {
+    }
 }

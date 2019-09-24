@@ -91,6 +91,7 @@ Name | Type | Description | Notes
 **fromquote** | **string** |  | [optional] 
 **credit** | **bool** |  | [optional] 
 **acompte** | **bool** |  | [optional] 
+**document_model** | **string** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

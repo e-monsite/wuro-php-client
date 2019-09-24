@@ -80,15 +80,25 @@ All URIs are relative to *https://wuro.pro/api/v1*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AuthApi* | [**accessTokenGet**](docs/Api/AuthApi.md#accesstokenget) | **GET** /accessToken | 
+*CompaniesApi* | [**companyCompanyIdGet**](docs/Api/CompaniesApi.md#companycompanyidget) | **GET** /company/{companyId} | 
+*CompaniesApi* | [**documentModelsGet**](docs/Api/CompaniesApi.md#documentmodelsget) | **GET** /document-models | 
 *InvoicesApi* | [**invoicePost**](docs/Api/InvoicesApi.md#invoicepost) | **POST** /invoice | 
+*MiscellaneousApi* | [**vatRatesGet**](docs/Api/MiscellaneousApi.md#vatratesget) | **GET** /vat-rates | 
 
 ## Documentation For Models
 
  - [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
+ - [CompanyResponse](docs/Model/CompanyResponse.md)
+ - [DocumentModel](docs/Model/DocumentModel.md)
+ - [DocumentModelFooter](docs/Model/DocumentModelFooter.md)
+ - [DocumentModelHeader](docs/Model/DocumentModelHeader.md)
+ - [DocumentModelsResponse](docs/Model/DocumentModelsResponse.md)
  - [ErrorResponse](docs/Model/ErrorResponse.md)
  - [Invoice](docs/Model/Invoice.md)
  - [InvoiceCreatedResponse](docs/Model/InvoiceCreatedResponse.md)
  - [InvoiceLine](docs/Model/InvoiceLine.md)
+ - [VatRate](docs/Model/VatRate.md)
+ - [VatRatesResponse](docs/Model/VatRatesResponse.md)
 
 ## Documentation For Authorization
 

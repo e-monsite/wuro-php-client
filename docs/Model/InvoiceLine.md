@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **price_ttc** | **float** |  | [optional] 
 **quantity** | **float** |  | [optional] 
 **total_ht** | **float** |  | [optional] 
-**tva** | **object** |  | [optional] 
+**tva** | **string** |  | [optional] 
 **tva_rate** | **float** |  | [optional] 
 **discount_ht** | **float** |  | [optional] 
 **discount_type** | **string** |  | [optional] 

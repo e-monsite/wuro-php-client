@@ -82,6 +82,7 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**accessTokenGet**](docs/Api/AuthApi.md#accesstokenget) | **GET** /accessToken | 
 *CompaniesApi* | [**companyCompanyIdGet**](docs/Api/CompaniesApi.md#companycompanyidget) | **GET** /company/{companyId} | 
 *CompaniesApi* | [**documentModelsGet**](docs/Api/CompaniesApi.md#documentmodelsget) | **GET** /document-models | 
+*CompaniesApi* | [**paymentMethodsGet**](docs/Api/CompaniesApi.md#paymentmethodsget) | **GET** /payment-methods | 
 *InvoicesApi* | [**invoicePost**](docs/Api/InvoicesApi.md#invoicepost) | **POST** /invoice | 
 *MiscellaneousApi* | [**vatRatesGet**](docs/Api/MiscellaneousApi.md#vatratesget) | **GET** /vat-rates | 
 
@@ -97,6 +98,8 @@ Class | Method | HTTP request | Description
  - [Invoice](docs/Model/Invoice.md)
  - [InvoiceCreatedResponse](docs/Model/InvoiceCreatedResponse.md)
  - [InvoiceLine](docs/Model/InvoiceLine.md)
+ - [PaymentMethod](docs/Model/PaymentMethod.md)
+ - [PaymentMethodsResponse](docs/Model/PaymentMethodsResponse.md)
  - [VatRate](docs/Model/VatRate.md)
  - [VatRatesResponse](docs/Model/VatRatesResponse.md)
 

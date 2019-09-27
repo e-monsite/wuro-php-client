@@ -66,7 +66,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess
 'price_ttc' => 'float',
 'quantity' => 'float',
 'total_ht' => 'float',
-'tva' => 'object',
+'tva' => 'string',
 'tva_rate' => 'float',
 'discount_ht' => 'float',
 'discount_type' => 'string',
@@ -541,7 +541,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess
     /**
      * Gets tva
      *
-     * @return object
+     * @return string
      */
     public function getTva()
     {
@@ -551,7 +551,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess
     /**
      * Sets tva
      *
-     * @param object $tva tva
+     * @param string $tva tva
      *
      * @return $this
      */

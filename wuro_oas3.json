@@ -326,6 +326,23 @@
           }
         }
       },
+      "Payement": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "method_name": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        }
+      },
       "PaymentMethod": {
         "type": "object",
         "properties": {
@@ -770,7 +787,10 @@
           },
           "payments": {
             "items": {
-              "type": "object"
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Payement"
+              }
             }
           },
           "total_nettopay": {

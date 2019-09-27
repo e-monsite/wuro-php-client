@@ -352,7 +352,7 @@
           "success"
         ],
         "properties": {
-          "vat_rates": {
+          "payment_methods": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PaymentMethod"

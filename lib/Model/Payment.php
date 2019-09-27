@@ -1,6 +1,6 @@
 <?php
 /**
- * Payement
+ * Payment
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Wuro\Api\ObjectSerializer;
 
 /**
- * Payement Class Doc Comment
+ * Payment Class Doc Comment
  *
  * @category Class
  * @package  Wuro\Api
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Payement implements ModelInterface, ArrayAccess
+class Payment implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class Payement implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Payement';
+    protected static $swaggerModelName = 'Payment';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

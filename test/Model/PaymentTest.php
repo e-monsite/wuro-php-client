@@ -1,6 +1,6 @@
 <?php
 /**
- * PayementTest
+ * PaymentTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace Wuro\Api;
 
 /**
- * PayementTest Class Doc Comment
+ * PaymentTest Class Doc Comment
  *
  * @category    Class
- * @description Payement
+ * @description Payment
  * @package     Wuro\Api
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class PayementTest extends \PHPUnit_Framework_TestCase
+class PaymentTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,9 +69,9 @@ class PayementTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "Payement"
+     * Test "Payment"
      */
-    public function testPayement()
+    public function testPayment()
     {
     }
 

@@ -84,6 +84,41 @@
         }
       }
     },
+    "/payment-methods": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "description": "Available payment methods",
+        "responses": {
+          "200": {
+            "description": "Payment methods response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentMethodsResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Credentials error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/company/{companyId}": {
       "get": {
         "tags": [
@@ -291,6 +326,44 @@
           }
         }
       },
+      "PaymentMethod": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "company": {
+            "type": "number"
+          },
+          "tag": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "number"
+          }
+        }
+      },
+      "PaymentMethodsResponse": {
+        "required": [
+          "payment_methods",
+          "success"
+        ],
+        "properties": {
+          "vat_rates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentMethod"
+            }
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
       "DocumentModelsResponse": {
         "required": [
           "documentModels",
@@ -401,7 +474,7 @@
             "type": "number"
           },
           "tva": {
-            "type": "object"
+            "type": "string"
           },
           "tva_rate": {
             "type": "number"

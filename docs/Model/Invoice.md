@@ -86,7 +86,7 @@ Name | Type | Description | Notes
 **external_file** | **string** |  | [optional] 
 **external_url** | **string** |  | [optional] 
 **payment_state** | **string** |  | [optional] 
-**payments** | **object[]** |  | [optional] 
+**payments** | [**\Wuro\Api\Model\Payement[][]**](array.md) |  | [optional] 
 **total_nettopay** | **float** |  | [optional] 
 **fromquote** | **string** |  | [optional] 
 **credit** | **bool** |  | [optional] 

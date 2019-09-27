@@ -139,7 +139,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'external_file' => 'string',
 'external_url' => 'string',
 'payment_state' => 'string',
-'payments' => 'object[]',
+'payments' => '\Wuro\Api\Model\Payement[][]',
 'total_nettopay' => 'float',
 'fromquote' => 'string',
 'credit' => 'bool',
@@ -2766,7 +2766,7 @@ self::STATE_INACTIVE,        ];
     /**
      * Gets payments
      *
-     * @return object[]
+     * @return \Wuro\Api\Model\Payement[][]
      */
     public function getPayments()
     {
@@ -2776,7 +2776,7 @@ self::STATE_INACTIVE,        ];
     /**
      * Sets payments
      *
-     * @param object[] $payments payments
+     * @param \Wuro\Api\Model\Payement[][] $payments payments
      *
      * @return $this
      */

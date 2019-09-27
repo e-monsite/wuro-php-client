@@ -98,6 +98,7 @@ Class | Method | HTTP request | Description
  - [Invoice](docs/Model/Invoice.md)
  - [InvoiceCreatedResponse](docs/Model/InvoiceCreatedResponse.md)
  - [InvoiceLine](docs/Model/InvoiceLine.md)
+ - [Payement](docs/Model/Payement.md)
  - [PaymentMethod](docs/Model/PaymentMethod.md)
  - [PaymentMethodsResponse](docs/Model/PaymentMethodsResponse.md)
  - [VatRate](docs/Model/VatRate.md)

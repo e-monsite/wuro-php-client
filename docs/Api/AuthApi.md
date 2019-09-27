@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 
-Get an access token for tierce dev
+Get an access token
 
 ### Example
 ```php

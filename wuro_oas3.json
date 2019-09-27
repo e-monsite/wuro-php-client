@@ -19,7 +19,7 @@
         "tags": [
           "Auth"
         ],
-        "description": "Get an access token for tierce dev",
+        "description": "Get an access token",
         "parameters": [
           {
             "name": "app_id",

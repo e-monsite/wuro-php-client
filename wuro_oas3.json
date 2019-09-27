@@ -326,7 +326,7 @@
           }
         }
       },
-      "Payement": {
+      "Payment": {
         "type": "object",
         "properties": {
           "mode": {
@@ -789,7 +789,7 @@
             "items": {
               "type": "array",
               "items": {
-                "$ref": "#/components/schemas/Payement"
+                "$ref": "#/components/schemas/Payment"
               }
             }
           },

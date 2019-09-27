@@ -56,7 +56,7 @@ class PaymentMethodsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'vat_rates' => '\Wuro\Api\Model\PaymentMethod[]',
+        'payment_methods' => '\Wuro\Api\Model\PaymentMethod[]',
 'success' => 'bool'    ];
 
     /**
@@ -65,7 +65,7 @@ class PaymentMethodsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'vat_rates' => null,
+        'payment_methods' => null,
 'success' => null    ];
 
     /**
@@ -95,7 +95,7 @@ class PaymentMethodsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'vat_rates' => 'vat_rates',
+        'payment_methods' => 'payment_methods',
 'success' => 'success'    ];
 
     /**
@@ -104,7 +104,7 @@ class PaymentMethodsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'vat_rates' => 'setVatRates',
+        'payment_methods' => 'setPaymentMethods',
 'success' => 'setSuccess'    ];
 
     /**
@@ -113,7 +113,7 @@ class PaymentMethodsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'vat_rates' => 'getVatRates',
+        'payment_methods' => 'getPaymentMethods',
 'success' => 'getSuccess'    ];
 
     /**
@@ -174,7 +174,7 @@ class PaymentMethodsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['vat_rates'] = isset($data['vat_rates']) ? $data['vat_rates'] : null;
+        $this->container['payment_methods'] = isset($data['payment_methods']) ? $data['payment_methods'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
@@ -187,6 +187,9 @@ class PaymentMethodsResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['payment_methods'] === null) {
+            $invalidProperties[] = "'payment_methods' can't be null";
+        }
         if ($this->container['success'] === null) {
             $invalidProperties[] = "'success' can't be null";
         }
@@ -206,25 +209,25 @@ class PaymentMethodsResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets vat_rates
+     * Gets payment_methods
      *
      * @return \Wuro\Api\Model\PaymentMethod[]
      */
-    public function getVatRates()
+    public function getPaymentMethods()
     {
-        return $this->container['vat_rates'];
+        return $this->container['payment_methods'];
     }
 
     /**
-     * Sets vat_rates
+     * Sets payment_methods
      *
-     * @param \Wuro\Api\Model\PaymentMethod[] $vat_rates vat_rates
+     * @param \Wuro\Api\Model\PaymentMethod[] $payment_methods payment_methods
      *
      * @return $this
      */
-    public function setVatRates($vat_rates)
+    public function setPaymentMethods($payment_methods)
     {
-        $this->container['vat_rates'] = $vat_rates;
+        $this->container['payment_methods'] = $payment_methods;
 
         return $this;
     }

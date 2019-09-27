@@ -76,9 +76,9 @@ class PaymentMethodsResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "vat_rates"
+     * Test attribute "payment_methods"
      */
-    public function testPropertyVatRates()
+    public function testPropertyPaymentMethods()
     {
     }
 

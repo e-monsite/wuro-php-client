@@ -200,6 +200,62 @@
         ]
       }
     },
+    "/invoice/{invoiceId}": {
+      "get": {
+        "tags": [
+          "Invoices"
+        ],
+        "description": "Retrieve an invoice",
+        "parameters": [
+          {
+            "name": "invoiceId",
+            "in": "path",
+            "description": "Invoice ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Invoice",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvoiceResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Credentials error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Invoice not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/invoice": {
       "post": {
         "tags": [
@@ -328,7 +384,16 @@
       },
       "Payment": {
         "type": "object",
+        "required": [
+          "mode",
+          "amount",
+          "method_name",
+          "date"
+        ],
         "properties": {
+          "_id": {
+            "type": "string"
+          },
           "mode": {
             "type": "string"
           },
@@ -339,7 +404,8 @@
             "type": "string"
           },
           "date": {
-            "type": "string"
+            "type": "string",
+            "format": "date"
           }
         }
       },
@@ -460,6 +526,9 @@
           "description"
         ],
         "properties": {
+          "_id": {
+            "type": "string"
+          },
           "reference": {
             "type": "string"
           },
@@ -521,6 +590,9 @@
           "invoice_lines"
         ],
         "properties": {
+          "id": {
+            "type": "string"
+          },
           "title": {
             "type": "string"
           },
@@ -545,7 +617,7 @@
           "currency": {
             "type": "object"
           },
-          "payment_method": {
+          "payment_methods": {
             "type": "object"
           },
           "shipping": {
@@ -764,7 +836,7 @@
           "delivery_email": {
             "type": "string"
           },
-          "displayRules": {
+          "display_rules": {
             "type": "object"
           },
           "style": {
@@ -807,12 +879,35 @@
           },
           "documentModel": {
             "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date"
           }
         }
       },
       "InvoiceCreatedResponse": {
         "required": [
           "new_invoice",
+          "success"
+        ],
+        "properties": {
+          "new_invoice": {
+            "$ref": "#/components/schemas/Invoice"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "InvoiceResponse": {
+        "required": [
+          "invoice",
           "success"
         ],
         "properties": {

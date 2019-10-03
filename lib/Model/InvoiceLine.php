@@ -56,7 +56,8 @@ class InvoiceLine implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'reference' => 'string',
+        '_id' => 'string',
+'reference' => 'string',
 'title' => 'string',
 'description' => 'string',
 'product' => 'object',
@@ -80,7 +81,8 @@ class InvoiceLine implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'reference' => null,
+        '_id' => null,
+'reference' => null,
 'title' => null,
 'description' => null,
 'product' => null,
@@ -125,7 +127,8 @@ class InvoiceLine implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'reference' => 'reference',
+        '_id' => '_id',
+'reference' => 'reference',
 'title' => 'title',
 'description' => 'description',
 'product' => 'product',
@@ -149,7 +152,8 @@ class InvoiceLine implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'reference' => 'setReference',
+        '_id' => 'setId',
+'reference' => 'setReference',
 'title' => 'setTitle',
 'description' => 'setDescription',
 'product' => 'setProduct',
@@ -173,7 +177,8 @@ class InvoiceLine implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'reference' => 'getReference',
+        '_id' => 'getId',
+'reference' => 'getReference',
 'title' => 'getTitle',
 'description' => 'getDescription',
 'product' => 'getProduct',
@@ -249,6 +254,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['_id'] = isset($data['_id']) ? $data['_id'] : null;
         $this->container['reference'] = isset($data['reference']) ? $data['reference'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -297,6 +303,30 @@ class InvoiceLine implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets _id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['_id'];
+    }
+
+    /**
+     * Sets _id
+     *
+     * @param string $_id _id
+     *
+     * @return $this
+     */
+    public function setId($_id)
+    {
+        $this->container['_id'] = $_id;
+
+        return $this;
+    }
 
     /**
      * Gets reference

@@ -56,7 +56,8 @@ class Invoice implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'title' => 'string',
+        'id' => 'string',
+'title' => 'string',
 'name' => 'string',
 'number' => 'string',
 'date' => 'object',
@@ -64,7 +65,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'category' => 'object',
 'user' => 'object',
 'currency' => 'object',
-'payment_method' => 'object',
+'payment_methods' => 'object',
 'shipping' => 'object',
 'invoice_lines' => '\Wuro\Api\Model\InvoiceLine[]',
 'display_expeditor' => 'bool',
@@ -144,7 +145,9 @@ class Invoice implements ModelInterface, ArrayAccess
 'fromquote' => 'string',
 'credit' => 'bool',
 'acompte' => 'bool',
-'document_model' => 'string'    ];
+'document_model' => 'string',
+'created_at' => '\DateTime',
+'updated_at' => '\DateTime'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -152,7 +155,8 @@ class Invoice implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'title' => null,
+        'id' => null,
+'title' => null,
 'name' => null,
 'number' => null,
 'date' => null,
@@ -160,7 +164,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'category' => null,
 'user' => null,
 'currency' => null,
-'payment_method' => null,
+'payment_methods' => null,
 'shipping' => null,
 'invoice_lines' => null,
 'display_expeditor' => null,
@@ -240,7 +244,9 @@ class Invoice implements ModelInterface, ArrayAccess
 'fromquote' => null,
 'credit' => null,
 'acompte' => null,
-'document_model' => null    ];
+'document_model' => null,
+'created_at' => 'date',
+'updated_at' => 'date'    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -269,7 +275,8 @@ class Invoice implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'title' => 'title',
+        'id' => 'id',
+'title' => 'title',
 'name' => 'name',
 'number' => 'number',
 'date' => 'date',
@@ -277,7 +284,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'category' => 'category',
 'user' => 'user',
 'currency' => 'currency',
-'payment_method' => 'payment_method',
+'payment_methods' => 'payment_methods',
 'shipping' => 'shipping',
 'invoice_lines' => 'invoice_lines',
 'display_expeditor' => 'display_expeditor',
@@ -345,7 +352,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'delivery_phone' => 'delivery_phone',
 'delivery_fax' => 'delivery_fax',
 'delivery_email' => 'delivery_email',
-'display_rules' => 'displayRules',
+'display_rules' => 'display_rules',
 'style' => 'style',
 'has_reduction' => 'hasReduction',
 'signature' => 'signature',
@@ -357,7 +364,9 @@ class Invoice implements ModelInterface, ArrayAccess
 'fromquote' => 'fromquote',
 'credit' => 'credit',
 'acompte' => 'acompte',
-'document_model' => 'documentModel'    ];
+'document_model' => 'documentModel',
+'created_at' => 'createdAt',
+'updated_at' => 'updatedAt'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -365,7 +374,8 @@ class Invoice implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'title' => 'setTitle',
+        'id' => 'setId',
+'title' => 'setTitle',
 'name' => 'setName',
 'number' => 'setNumber',
 'date' => 'setDate',
@@ -373,7 +383,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'category' => 'setCategory',
 'user' => 'setUser',
 'currency' => 'setCurrency',
-'payment_method' => 'setPaymentMethod',
+'payment_methods' => 'setPaymentMethods',
 'shipping' => 'setShipping',
 'invoice_lines' => 'setInvoiceLines',
 'display_expeditor' => 'setDisplayExpeditor',
@@ -453,7 +463,9 @@ class Invoice implements ModelInterface, ArrayAccess
 'fromquote' => 'setFromquote',
 'credit' => 'setCredit',
 'acompte' => 'setAcompte',
-'document_model' => 'setDocumentModel'    ];
+'document_model' => 'setDocumentModel',
+'created_at' => 'setCreatedAt',
+'updated_at' => 'setUpdatedAt'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -461,7 +473,8 @@ class Invoice implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'title' => 'getTitle',
+        'id' => 'getId',
+'title' => 'getTitle',
 'name' => 'getName',
 'number' => 'getNumber',
 'date' => 'getDate',
@@ -469,7 +482,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'category' => 'getCategory',
 'user' => 'getUser',
 'currency' => 'getCurrency',
-'payment_method' => 'getPaymentMethod',
+'payment_methods' => 'getPaymentMethods',
 'shipping' => 'getShipping',
 'invoice_lines' => 'getInvoiceLines',
 'display_expeditor' => 'getDisplayExpeditor',
@@ -549,7 +562,9 @@ class Invoice implements ModelInterface, ArrayAccess
 'fromquote' => 'getFromquote',
 'credit' => 'getCredit',
 'acompte' => 'getAcompte',
-'document_model' => 'getDocumentModel'    ];
+'document_model' => 'getDocumentModel',
+'created_at' => 'getCreatedAt',
+'updated_at' => 'getUpdatedAt'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -630,6 +645,7 @@ self::STATE_INACTIVE,        ];
      */
     public function __construct(array $data = null)
     {
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['number'] = isset($data['number']) ? $data['number'] : null;
@@ -638,7 +654,7 @@ self::STATE_INACTIVE,        ];
         $this->container['category'] = isset($data['category']) ? $data['category'] : null;
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['payment_method'] = isset($data['payment_method']) ? $data['payment_method'] : null;
+        $this->container['payment_methods'] = isset($data['payment_methods']) ? $data['payment_methods'] : null;
         $this->container['shipping'] = isset($data['shipping']) ? $data['shipping'] : null;
         $this->container['invoice_lines'] = isset($data['invoice_lines']) ? $data['invoice_lines'] : null;
         $this->container['display_expeditor'] = isset($data['display_expeditor']) ? $data['display_expeditor'] : null;
@@ -719,6 +735,8 @@ self::STATE_INACTIVE,        ];
         $this->container['credit'] = isset($data['credit']) ? $data['credit'] : null;
         $this->container['acompte'] = isset($data['acompte']) ? $data['acompte'] : null;
         $this->container['document_model'] = isset($data['document_model']) ? $data['document_model'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
     /**
@@ -761,6 +779,30 @@ self::STATE_INACTIVE,        ];
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets title
@@ -955,25 +997,25 @@ self::STATE_INACTIVE,        ];
     }
 
     /**
-     * Gets payment_method
+     * Gets payment_methods
      *
      * @return object
      */
-    public function getPaymentMethod()
+    public function getPaymentMethods()
     {
-        return $this->container['payment_method'];
+        return $this->container['payment_methods'];
     }
 
     /**
-     * Sets payment_method
+     * Sets payment_methods
      *
-     * @param object $payment_method payment_method
+     * @param object $payment_methods payment_methods
      *
      * @return $this
      */
-    public function setPaymentMethod($payment_method)
+    public function setPaymentMethods($payment_methods)
     {
-        $this->container['payment_method'] = $payment_method;
+        $this->container['payment_methods'] = $payment_methods;
 
         return $this;
     }
@@ -2903,6 +2945,54 @@ self::STATE_INACTIVE,        ];
     public function setDocumentModel($document_model)
     {
         $this->container['document_model'] = $document_model;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime $created_at created_at
+     *
+     * @return $this
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime $updated_at updated_at
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

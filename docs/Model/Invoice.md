@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **string** |  | [optional] 
 **title** | **string** |  | 
 **name** | **string** |  | [optional] 
 **number** | **string** |  | [optional] 
@@ -11,7 +12,7 @@ Name | Type | Description | Notes
 **category** | **object** |  | [optional] 
 **user** | **object** |  | [optional] 
 **currency** | **object** |  | [optional] 
-**payment_method** | **object** |  | [optional] 
+**payment_methods** | **object** |  | [optional] 
 **shipping** | **object** |  | [optional] 
 **invoice_lines** | [**\Wuro\Api\Model\InvoiceLine[]**](InvoiceLine.md) |  | 
 **display_expeditor** | **bool** |  | [optional] 
@@ -92,6 +93,8 @@ Name | Type | Description | Notes
 **credit** | **bool** |  | [optional] 
 **acompte** | **bool** |  | [optional] 
 **document_model** | **string** |  | [optional] 
+**created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

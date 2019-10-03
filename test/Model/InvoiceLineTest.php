@@ -76,6 +76,13 @@ class InvoiceLineTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "_id"
+     */
+    public function testPropertyId()
+    {
+    }
+
+    /**
      * Test attribute "reference"
      */
     public function testPropertyReference()

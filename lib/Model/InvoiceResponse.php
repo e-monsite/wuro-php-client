@@ -1,6 +1,6 @@
 <?php
 /**
- * Payment
+ * InvoiceResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Wuro\Api\ObjectSerializer;
 
 /**
- * Payment Class Doc Comment
+ * InvoiceResponse Class Doc Comment
  *
  * @category Class
  * @package  Wuro\Api
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Payment implements ModelInterface, ArrayAccess
+class InvoiceResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class Payment implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Payment';
+    protected static $swaggerModelName = 'InvoiceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,11 +56,8 @@ class Payment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        '_id' => 'string',
-'mode' => 'string',
-'amount' => 'float',
-'method_name' => 'string',
-'date' => '\DateTime'    ];
+        'new_invoice' => '\Wuro\Api\Model\Invoice',
+'success' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -68,11 +65,8 @@ class Payment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        '_id' => null,
-'mode' => null,
-'amount' => null,
-'method_name' => null,
-'date' => 'date'    ];
+        'new_invoice' => null,
+'success' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -101,11 +95,8 @@ class Payment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        '_id' => '_id',
-'mode' => 'mode',
-'amount' => 'amount',
-'method_name' => 'method_name',
-'date' => 'date'    ];
+        'new_invoice' => 'new_invoice',
+'success' => 'success'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -113,11 +104,8 @@ class Payment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        '_id' => 'setId',
-'mode' => 'setMode',
-'amount' => 'setAmount',
-'method_name' => 'setMethodName',
-'date' => 'setDate'    ];
+        'new_invoice' => 'setNewInvoice',
+'success' => 'setSuccess'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -125,11 +113,8 @@ class Payment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        '_id' => 'getId',
-'mode' => 'getMode',
-'amount' => 'getAmount',
-'method_name' => 'getMethodName',
-'date' => 'getDate'    ];
+        'new_invoice' => 'getNewInvoice',
+'success' => 'getSuccess'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -189,11 +174,8 @@ class Payment implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['_id'] = isset($data['_id']) ? $data['_id'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['method_name'] = isset($data['method_name']) ? $data['method_name'] : null;
-        $this->container['date'] = isset($data['date']) ? $data['date'] : null;
+        $this->container['new_invoice'] = isset($data['new_invoice']) ? $data['new_invoice'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
     /**
@@ -205,17 +187,8 @@ class Payment implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['mode'] === null) {
-            $invalidProperties[] = "'mode' can't be null";
-        }
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
-        }
-        if ($this->container['method_name'] === null) {
-            $invalidProperties[] = "'method_name' can't be null";
-        }
-        if ($this->container['date'] === null) {
-            $invalidProperties[] = "'date' can't be null";
+        if ($this->container['success'] === null) {
+            $invalidProperties[] = "'success' can't be null";
         }
         return $invalidProperties;
     }
@@ -233,121 +206,49 @@ class Payment implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets _id
+     * Gets new_invoice
      *
-     * @return string
+     * @return \Wuro\Api\Model\Invoice
      */
-    public function getId()
+    public function getNewInvoice()
     {
-        return $this->container['_id'];
+        return $this->container['new_invoice'];
     }
 
     /**
-     * Sets _id
+     * Sets new_invoice
      *
-     * @param string $_id _id
+     * @param \Wuro\Api\Model\Invoice $new_invoice new_invoice
      *
      * @return $this
      */
-    public function setId($_id)
+    public function setNewInvoice($new_invoice)
     {
-        $this->container['_id'] = $_id;
+        $this->container['new_invoice'] = $new_invoice;
 
         return $this;
     }
 
     /**
-     * Gets mode
+     * Gets success
      *
-     * @return string
+     * @return bool
      */
-    public function getMode()
+    public function getSuccess()
     {
-        return $this->container['mode'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets mode
+     * Sets success
      *
-     * @param string $mode mode
+     * @param bool $success True on success
      *
      * @return $this
      */
-    public function setMode($mode)
+    public function setSuccess($success)
     {
-        $this->container['mode'] = $mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount
-     *
-     * @return float
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param float $amount amount
-     *
-     * @return $this
-     */
-    public function setAmount($amount)
-    {
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets method_name
-     *
-     * @return string
-     */
-    public function getMethodName()
-    {
-        return $this->container['method_name'];
-    }
-
-    /**
-     * Sets method_name
-     *
-     * @param string $method_name method_name
-     *
-     * @return $this
-     */
-    public function setMethodName($method_name)
-    {
-        $this->container['method_name'] = $method_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets date
-     *
-     * @return \DateTime
-     */
-    public function getDate()
-    {
-        return $this->container['date'];
-    }
-
-    /**
-     * Sets date
-     *
-     * @param \DateTime $date date
-     *
-     * @return $this
-     */
-    public function setDate($date)
-    {
-        $this->container['date'] = $date;
+        $this->container['success'] = $success;
 
         return $this;
     }

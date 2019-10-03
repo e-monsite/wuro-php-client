@@ -76,6 +76,13 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+    }
+
+    /**
      * Test attribute "title"
      */
     public function testPropertyTitle()
@@ -132,9 +139,9 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "payment_method"
+     * Test attribute "payment_methods"
      */
-    public function testPropertyPaymentMethod()
+    public function testPropertyPaymentMethods()
     {
     }
 
@@ -695,6 +702,20 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      * Test attribute "document_model"
      */
     public function testPropertyDocumentModel()
+    {
+    }
+
+    /**
+     * Test attribute "created_at"
+     */
+    public function testPropertyCreatedAt()
+    {
+    }
+
+    /**
+     * Test attribute "updated_at"
+     */
+    public function testPropertyUpdatedAt()
     {
     }
 }

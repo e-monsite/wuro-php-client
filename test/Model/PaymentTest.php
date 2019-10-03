@@ -76,6 +76,13 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "_id"
+     */
+    public function testPropertyId()
+    {
+    }
+
+    /**
      * Test attribute "mode"
      */
     public function testPropertyMode()

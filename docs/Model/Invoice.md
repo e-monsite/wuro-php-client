@@ -85,7 +85,7 @@ Name | Type | Description | Notes
 **has_reduction** | **bool** |  | [optional] 
 **signature** | **object** |  | [optional] 
 **external_file** | **string** |  | [optional] 
-**pdf_url** | **string** |  | [optional] 
+**pdf_link** | **string** |  | [optional] 
 **external_url** | **string** |  | [optional] 
 **payment_state** | **string** |  | [optional] 
 **payments** | [**\Wuro\Api\Model\Payment[][]**](array.md) |  | [optional] 

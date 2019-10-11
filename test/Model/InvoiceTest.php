@@ -650,9 +650,9 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "pdf_url"
+     * Test attribute "pdf_link"
      */
-    public function testPropertyPdfUrl()
+    public function testPropertyPdfLink()
     {
     }
 

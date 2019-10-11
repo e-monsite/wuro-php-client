@@ -138,7 +138,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'has_reduction' => 'bool',
 'signature' => 'object',
 'external_file' => 'string',
-'pdf_url' => 'string',
+'pdf_link' => 'string',
 'external_url' => 'string',
 'payment_state' => 'string',
 'payments' => '\Wuro\Api\Model\Payment[][]',
@@ -238,7 +238,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'has_reduction' => null,
 'signature' => null,
 'external_file' => null,
-'pdf_url' => null,
+'pdf_link' => null,
 'external_url' => null,
 'payment_state' => null,
 'payments' => null,
@@ -359,7 +359,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'has_reduction' => 'hasReduction',
 'signature' => 'signature',
 'external_file' => 'external_file',
-'pdf_url' => 'pdf_url',
+'pdf_link' => 'pdf_link',
 'external_url' => 'external_url',
 'payment_state' => 'payment_state',
 'payments' => 'payments',
@@ -459,7 +459,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'has_reduction' => 'setHasReduction',
 'signature' => 'setSignature',
 'external_file' => 'setExternalFile',
-'pdf_url' => 'setPdfUrl',
+'pdf_link' => 'setPdfLink',
 'external_url' => 'setExternalUrl',
 'payment_state' => 'setPaymentState',
 'payments' => 'setPayments',
@@ -559,7 +559,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'has_reduction' => 'getHasReduction',
 'signature' => 'getSignature',
 'external_file' => 'getExternalFile',
-'pdf_url' => 'getPdfUrl',
+'pdf_link' => 'getPdfLink',
 'external_url' => 'getExternalUrl',
 'payment_state' => 'getPaymentState',
 'payments' => 'getPayments',
@@ -732,7 +732,7 @@ self::STATE_INACTIVE,        ];
         $this->container['has_reduction'] = isset($data['has_reduction']) ? $data['has_reduction'] : null;
         $this->container['signature'] = isset($data['signature']) ? $data['signature'] : null;
         $this->container['external_file'] = isset($data['external_file']) ? $data['external_file'] : null;
-        $this->container['pdf_url'] = isset($data['pdf_url']) ? $data['pdf_url'] : null;
+        $this->container['pdf_link'] = isset($data['pdf_link']) ? $data['pdf_link'] : null;
         $this->container['external_url'] = isset($data['external_url']) ? $data['external_url'] : null;
         $this->container['payment_state'] = isset($data['payment_state']) ? $data['payment_state'] : null;
         $this->container['payments'] = isset($data['payments']) ? $data['payments'] : null;
@@ -2764,25 +2764,25 @@ self::STATE_INACTIVE,        ];
     }
 
     /**
-     * Gets pdf_url
+     * Gets pdf_link
      *
      * @return string
      */
-    public function getPdfUrl()
+    public function getPdfLink()
     {
-        return $this->container['pdf_url'];
+        return $this->container['pdf_link'];
     }
 
     /**
-     * Sets pdf_url
+     * Sets pdf_link
      *
-     * @param string $pdf_url pdf_url
+     * @param string $pdf_link pdf_link
      *
      * @return $this
      */
-    public function setPdfUrl($pdf_url)
+    public function setPdfLink($pdf_link)
     {
-        $this->container['pdf_url'] = $pdf_url;
+        $this->container['pdf_link'] = $pdf_link;
 
         return $this;
     }

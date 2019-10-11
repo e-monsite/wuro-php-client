@@ -851,6 +851,9 @@
           "external_file": {
             "type": "string"
           },
+          "pdf_url": {
+            "type": "string"
+          },
           "external_url": {
             "type": "string"
           },

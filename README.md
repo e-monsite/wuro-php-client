@@ -86,6 +86,14 @@ Class | Method | HTTP request | Description
 *InvoicesApi* | [**invoiceInvoiceIdGet**](docs/Api/InvoicesApi.md#invoiceinvoiceidget) | **GET** /invoice/{invoiceId} | 
 *InvoicesApi* | [**invoicePost**](docs/Api/InvoicesApi.md#invoicepost) | **POST** /invoice | 
 *MiscellaneousApi* | [**vatRatesGet**](docs/Api/MiscellaneousApi.md#vatratesget) | **GET** /vat-rates | 
+*ProductsApi* | [**productCategoriesGet**](docs/Api/ProductsApi.md#productcategoriesget) | **GET** /product-categories | 
+*ProductsApi* | [**productCategoryPost**](docs/Api/ProductsApi.md#productcategorypost) | **POST** /product-category | 
+*ProductsApi* | [**productCategoryProductCategoryIdGet**](docs/Api/ProductsApi.md#productcategoryproductcategoryidget) | **GET** /product-category/{productCategoryId} | 
+*ProductsApi* | [**productCategoryProductCategoryIdPatch**](docs/Api/ProductsApi.md#productcategoryproductcategoryidpatch) | **PATCH** /product-category/{productCategoryId} | 
+*ProductsApi* | [**productPost**](docs/Api/ProductsApi.md#productpost) | **POST** /product | 
+*ProductsApi* | [**productProductIdGet**](docs/Api/ProductsApi.md#productproductidget) | **GET** /product/{productId} | 
+*ProductsApi* | [**productProductIdPatch**](docs/Api/ProductsApi.md#productproductidpatch) | **PATCH** /product/{productId} | 
+*ProductsApi* | [**productsGet**](docs/Api/ProductsApi.md#productsget) | **GET** /products | 
 
 ## Documentation For Models
 
@@ -103,6 +111,19 @@ Class | Method | HTTP request | Description
  - [Payment](docs/Model/Payment.md)
  - [PaymentMethod](docs/Model/PaymentMethod.md)
  - [PaymentMethodsResponse](docs/Model/PaymentMethodsResponse.md)
+ - [Product](docs/Model/Product.md)
+ - [ProductCategoriesResponse](docs/Model/ProductCategoriesResponse.md)
+ - [ProductCategory](docs/Model/ProductCategory.md)
+ - [ProductCategoryCreatedResponse](docs/Model/ProductCategoryCreatedResponse.md)
+ - [ProductCategoryResponse](docs/Model/ProductCategoryResponse.md)
+ - [ProductCategoryUpdatedResponse](docs/Model/ProductCategoryUpdatedResponse.md)
+ - [ProductCreatedResponse](docs/Model/ProductCreatedResponse.md)
+ - [ProductImage](docs/Model/ProductImage.md)
+ - [ProductResponse](docs/Model/ProductResponse.md)
+ - [ProductSpecifications](docs/Model/ProductSpecifications.md)
+ - [ProductStock](docs/Model/ProductStock.md)
+ - [ProductUpdatedResponse](docs/Model/ProductUpdatedResponse.md)
+ - [ProductsResponse](docs/Model/ProductsResponse.md)
  - [VatRate](docs/Model/VatRate.md)
  - [VatRatesResponse](docs/Model/VatRatesResponse.md)
 

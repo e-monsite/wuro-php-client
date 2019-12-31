@@ -311,6 +311,430 @@
           }
         ]
       }
+    },
+    "/product-categories": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "description": "Returns all product categories",
+        "responses": {
+          "200": {
+            "description": "Product categories",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductCategoriesResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Credentials error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/product-category": {
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "description": "Add a product category",
+        "requestBody": {
+          "description": "Product category to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductCategory"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Product category created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductCategoryCreatedResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Product Category supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication information is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/product-category/{productCategoryId}": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "description": "Get a product category",
+        "parameters": [
+          {
+            "name": "productCategoryId",
+            "in": "path",
+            "description": "Product Category UUID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product category response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductCategoryResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Credentials error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Product category not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Products"
+        ],
+        "description": "Update a product category",
+        "parameters": [
+          {
+            "name": "productCategoryId",
+            "in": "path",
+            "description": "Product Category UUID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Product category to update",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductCategory"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Product category update response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductCategoryUpdatedResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Credentials error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Product category not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/products": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "description": "Returns all products",
+        "responses": {
+          "200": {
+            "description": "Products",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductsResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Credentials error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/product": {
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "description": "Add a product",
+        "requestBody": {
+          "description": "Product to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Product created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductCreatedResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Product supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication information is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/product/{productId}": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "description": "Get a product",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Product UUID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Credentials error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Product not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Products"
+        ],
+        "description": "Update a product",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Product UUID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Product to update",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Product update response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductUpdatedResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Credentials error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Product not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -916,6 +1340,242 @@
         "properties": {
           "new_invoice": {
             "$ref": "#/components/schemas/Invoice"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "ProductCategoriesResponse": {
+        "required": [
+          "product_categories",
+          "success"
+        ],
+        "properties": {
+          "productCategories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductCategory"
+            }
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "ProductCategory": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "parent_category": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "company": {
+            "type": "string"
+          }
+        }
+      },
+      "ProductCategoryCreatedResponse": {
+        "type": "object",
+        "required": [
+          "new_product_category",
+          "success"
+        ],
+        "properties": {
+          "new_product_category": {
+            "$ref": "#/components/schemas/ProductCategory"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "ProductCategoryUpdatedResponse": {
+        "required": [
+          "updatedProductCategory",
+          "success"
+        ],
+        "properties": {
+          "updatedProductCategory": {
+            "$ref": "#/components/schemas/ProductCategory"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "ProductCategoryResponse": {
+        "required": [
+          "product_category",
+          "success"
+        ],
+        "properties": {
+          "product_category": {
+            "$ref": "#/components/schemas/ProductCategory"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "ProductsResponse": {
+        "required": [
+          "products",
+          "success"
+        ],
+        "properties": {
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            }
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "Product": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "reference": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "company": {
+            "type": "string"
+          },
+          "tva": {
+            "type": "string"
+          },
+          "tva_rate": {
+            "type": "number"
+          },
+          "ecotax": {
+            "type": "number"
+          },
+          "cost_price": {
+            "type": "number"
+          },
+          "analytical_code": {
+            "type": "string"
+          },
+          "stock": {
+            "type": "object",
+            "properties": {
+              "nb_stock": {
+                "type": "number"
+              },
+              "nb_alert": {
+                "type": "number"
+              },
+              "nb_min": {
+                "type": "number"
+              }
+            }
+          },
+          "specifications": {
+            "type": "object",
+            "properties": {
+              "width": {
+                "type": "number"
+              },
+              "depth": {
+                "type": "number"
+              },
+              "height": {
+                "type": "number"
+              },
+              "weight": {
+                "type": "number"
+              }
+            }
+          },
+          "image": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              }
+            }
+          },
+          "url_ext": {
+            "type": "string"
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "ProductCreatedResponse": {
+        "required": [
+          "new_product",
+          "success"
+        ],
+        "properties": {
+          "new_invoice": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "ProductUpdatedResponse": {
+        "required": [
+          "updatedProduct",
+          "success"
+        ],
+        "properties": {
+          "updatedProduct": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "ProductResponse": {
+        "required": [
+          "product",
+          "success"
+        ],
+        "properties": {
+          "new_invoice": {
+            "$ref": "#/components/schemas/Product"
           },
           "success": {
             "type": "boolean",

@@ -1353,7 +1353,7 @@
           "success"
         ],
         "properties": {
-          "productCategories": {
+          "product_categories": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ProductCategory"

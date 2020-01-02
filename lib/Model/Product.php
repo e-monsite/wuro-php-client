@@ -58,6 +58,7 @@ class Product implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         '_id' => 'string',
 'name' => 'string',
+'description' => 'string',
 'reference' => 'string',
 'category' => 'string',
 'company' => 'string',
@@ -65,6 +66,7 @@ class Product implements ModelInterface, ArrayAccess
 'tva_rate' => 'float',
 'ecotax' => 'float',
 'cost_price' => 'float',
+'price_ht' => 'float',
 'analytical_code' => 'string',
 'stock' => '\Wuro\Api\Model\ProductStock',
 'specifications' => '\Wuro\Api\Model\ProductSpecifications',
@@ -80,6 +82,7 @@ class Product implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         '_id' => null,
 'name' => null,
+'description' => null,
 'reference' => null,
 'category' => null,
 'company' => null,
@@ -87,6 +90,7 @@ class Product implements ModelInterface, ArrayAccess
 'tva_rate' => null,
 'ecotax' => null,
 'cost_price' => null,
+'price_ht' => null,
 'analytical_code' => null,
 'stock' => null,
 'specifications' => null,
@@ -123,6 +127,7 @@ class Product implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         '_id' => '_id',
 'name' => 'name',
+'description' => 'description',
 'reference' => 'reference',
 'category' => 'category',
 'company' => 'company',
@@ -130,6 +135,7 @@ class Product implements ModelInterface, ArrayAccess
 'tva_rate' => 'tva_rate',
 'ecotax' => 'ecotax',
 'cost_price' => 'cost_price',
+'price_ht' => 'price_ht',
 'analytical_code' => 'analytical_code',
 'stock' => 'stock',
 'specifications' => 'specifications',
@@ -145,6 +151,7 @@ class Product implements ModelInterface, ArrayAccess
     protected static $setters = [
         '_id' => 'setId',
 'name' => 'setName',
+'description' => 'setDescription',
 'reference' => 'setReference',
 'category' => 'setCategory',
 'company' => 'setCompany',
@@ -152,6 +159,7 @@ class Product implements ModelInterface, ArrayAccess
 'tva_rate' => 'setTvaRate',
 'ecotax' => 'setEcotax',
 'cost_price' => 'setCostPrice',
+'price_ht' => 'setPriceHt',
 'analytical_code' => 'setAnalyticalCode',
 'stock' => 'setStock',
 'specifications' => 'setSpecifications',
@@ -167,6 +175,7 @@ class Product implements ModelInterface, ArrayAccess
     protected static $getters = [
         '_id' => 'getId',
 'name' => 'getName',
+'description' => 'getDescription',
 'reference' => 'getReference',
 'category' => 'getCategory',
 'company' => 'getCompany',
@@ -174,6 +183,7 @@ class Product implements ModelInterface, ArrayAccess
 'tva_rate' => 'getTvaRate',
 'ecotax' => 'getEcotax',
 'cost_price' => 'getCostPrice',
+'price_ht' => 'getPriceHt',
 'analytical_code' => 'getAnalyticalCode',
 'stock' => 'getStock',
 'specifications' => 'getSpecifications',
@@ -241,6 +251,7 @@ class Product implements ModelInterface, ArrayAccess
     {
         $this->container['_id'] = isset($data['_id']) ? $data['_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['reference'] = isset($data['reference']) ? $data['reference'] : null;
         $this->container['category'] = isset($data['category']) ? $data['category'] : null;
         $this->container['company'] = isset($data['company']) ? $data['company'] : null;
@@ -248,6 +259,7 @@ class Product implements ModelInterface, ArrayAccess
         $this->container['tva_rate'] = isset($data['tva_rate']) ? $data['tva_rate'] : null;
         $this->container['ecotax'] = isset($data['ecotax']) ? $data['ecotax'] : null;
         $this->container['cost_price'] = isset($data['cost_price']) ? $data['cost_price'] : null;
+        $this->container['price_ht'] = isset($data['price_ht']) ? $data['price_ht'] : null;
         $this->container['analytical_code'] = isset($data['analytical_code']) ? $data['analytical_code'] : null;
         $this->container['stock'] = isset($data['stock']) ? $data['stock'] : null;
         $this->container['specifications'] = isset($data['specifications']) ? $data['specifications'] : null;
@@ -327,6 +339,30 @@ class Product implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
 
         return $this;
     }
@@ -495,6 +531,30 @@ class Product implements ModelInterface, ArrayAccess
     public function setCostPrice($cost_price)
     {
         $this->container['cost_price'] = $cost_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets price_ht
+     *
+     * @return float
+     */
+    public function getPriceHt()
+    {
+        return $this->container['price_ht'];
+    }
+
+    /**
+     * Sets price_ht
+     *
+     * @param float $price_ht price_ht
+     *
+     * @return $this
+     */
+    public function setPriceHt($price_ht)
+    {
+        $this->container['price_ht'] = $price_ht;
 
         return $this;
     }

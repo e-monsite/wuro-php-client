@@ -90,6 +90,13 @@ class ProductTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
+    }
+
+    /**
      * Test attribute "reference"
      */
     public function testPropertyReference()
@@ -135,6 +142,13 @@ class ProductTest extends \PHPUnit_Framework_TestCase
      * Test attribute "cost_price"
      */
     public function testPropertyCostPrice()
+    {
+    }
+
+    /**
+     * Test attribute "price_ht"
+     */
+    public function testPropertyPriceHt()
     {
     }
 

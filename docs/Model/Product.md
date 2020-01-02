@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_id** | **string** |  | [optional] 
 **name** | **string** |  | 
+**description** | **string** |  | [optional] 
 **reference** | **string** |  | [optional] 
 **category** | **string** |  | [optional] 
 **company** | **string** |  | [optional] 
@@ -12,6 +13,7 @@ Name | Type | Description | Notes
 **tva_rate** | **float** |  | [optional] 
 **ecotax** | **float** |  | [optional] 
 **cost_price** | **float** |  | [optional] 
+**price_ht** | **float** |  | [optional] 
 **analytical_code** | **string** |  | [optional] 
 **stock** | [**\Wuro\Api\Model\ProductStock**](ProductStock.md) |  | [optional] 
 **specifications** | [**\Wuro\Api\Model\ProductSpecifications**](ProductSpecifications.md) |  | [optional] 

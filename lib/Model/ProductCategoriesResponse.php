@@ -95,7 +95,7 @@ class ProductCategoriesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'product_categories' => 'productCategories',
+        'product_categories' => 'product_categories',
 'success' => 'success'    ];
 
     /**
@@ -187,6 +187,9 @@ class ProductCategoriesResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['product_categories'] === null) {
+            $invalidProperties[] = "'product_categories' can't be null";
+        }
         if ($this->container['success'] === null) {
             $invalidProperties[] = "'success' can't be null";
         }

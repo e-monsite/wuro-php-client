@@ -80,6 +80,10 @@ All URIs are relative to *https://wuro.pro/api/v1*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AuthApi* | [**accessTokenGet**](docs/Api/AuthApi.md#accesstokenget) | **GET** /accessToken | 
+*ClientsApi* | [**clientClientIdGet**](docs/Api/ClientsApi.md#clientclientidget) | **GET** /client/{clientId} | 
+*ClientsApi* | [**clientClientIdPatch**](docs/Api/ClientsApi.md#clientclientidpatch) | **PATCH** /client/{clientId} | 
+*ClientsApi* | [**clientPost**](docs/Api/ClientsApi.md#clientpost) | **POST** /client | 
+*ClientsApi* | [**clientsGet**](docs/Api/ClientsApi.md#clientsget) | **GET** /clients | 
 *CompaniesApi* | [**companyCompanyIdGet**](docs/Api/CompaniesApi.md#companycompanyidget) | **GET** /company/{companyId} | 
 *CompaniesApi* | [**documentModelsGet**](docs/Api/CompaniesApi.md#documentmodelsget) | **GET** /document-models | 
 *CompaniesApi* | [**paymentMethodsGet**](docs/Api/CompaniesApi.md#paymentmethodsget) | **GET** /payment-methods | 
@@ -98,6 +102,12 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
+ - [Client](docs/Model/Client.md)
+ - [ClientCreatedResponse](docs/Model/ClientCreatedResponse.md)
+ - [ClientResponse](docs/Model/ClientResponse.md)
+ - [ClientTags](docs/Model/ClientTags.md)
+ - [ClientUpdatedResponse](docs/Model/ClientUpdatedResponse.md)
+ - [ClientsResponse](docs/Model/ClientsResponse.md)
  - [CompanyResponse](docs/Model/CompanyResponse.md)
  - [DocumentModel](docs/Model/DocumentModel.md)
  - [DocumentModelFooter](docs/Model/DocumentModelFooter.md)

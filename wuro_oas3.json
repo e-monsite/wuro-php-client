@@ -735,6 +735,218 @@
           }
         ]
       }
+    },
+    "/clients": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "description": "Returns all clients",
+        "responses": {
+          "200": {
+            "description": "Clients",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientsResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Credentials error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/client": {
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "description": "Add a client",
+        "requestBody": {
+          "description": "Client to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Client"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Client created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientCreatedResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Client supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication information is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/client/{clientId}": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "description": "Get a client",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "description": "Client UUID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Client response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Credentials error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Client not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Clients"
+        ],
+        "description": "Update a client",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "description": "Client UUID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Client to update",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Client"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Client update response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientUpdatedResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Credentials error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Client not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -1550,7 +1762,7 @@
           "success"
         ],
         "properties": {
-          "new_invoice": {
+          "new_product": {
             "$ref": "#/components/schemas/Product"
           },
           "success": {
@@ -1580,8 +1792,141 @@
           "success"
         ],
         "properties": {
-          "new_invoice": {
+          "product": {
             "$ref": "#/components/schemas/Product"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "ClientsResponse": {
+        "required": [
+          "clients",
+          "success"
+        ],
+        "properties": {
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Client"
+            }
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "Client": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "address_end": {
+            "type": "string"
+          },
+          "zip_code": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          },
+          "company": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "_id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "color": {
+                  "type": "string"
+                },
+                "custom_color": {
+                  "type": "string"
+                },
+                "company": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ClientCreatedResponse": {
+        "required": [
+          "new_client",
+          "success"
+        ],
+        "properties": {
+          "new_client": {
+            "$ref": "#/components/schemas/Client"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "ClientUpdatedResponse": {
+        "required": [
+          "updatedClient",
+          "success"
+        ],
+        "properties": {
+          "updatedClient": {
+            "$ref": "#/components/schemas/Client"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "ClientResponse": {
+        "required": [
+          "client",
+          "success"
+        ],
+        "properties": {
+          "client": {
+            "$ref": "#/components/schemas/Client"
           },
           "success": {
             "type": "boolean",

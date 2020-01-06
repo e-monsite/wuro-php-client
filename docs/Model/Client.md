@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **zip_code** | **string** |  | [optional] 
 **email** | **string** |  | [optional] 
 **phone** | **string** |  | [optional] 
+**mobile** | **string** |  | [optional] 
 **website** | **string** |  | [optional] 
 **company** | **string** |  | [optional] 
 **avatar** | **string** |  | [optional] 

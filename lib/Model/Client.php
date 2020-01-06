@@ -66,6 +66,7 @@ class Client implements ModelInterface, ArrayAccess
 'zip_code' => 'string',
 'email' => 'string',
 'phone' => 'string',
+'mobile' => 'string',
 'website' => 'string',
 'company' => 'string',
 'avatar' => 'string',
@@ -87,6 +88,7 @@ class Client implements ModelInterface, ArrayAccess
 'zip_code' => null,
 'email' => null,
 'phone' => null,
+'mobile' => null,
 'website' => null,
 'company' => null,
 'avatar' => null,
@@ -129,6 +131,7 @@ class Client implements ModelInterface, ArrayAccess
 'zip_code' => 'zip_code',
 'email' => 'email',
 'phone' => 'phone',
+'mobile' => 'mobile',
 'website' => 'website',
 'company' => 'company',
 'avatar' => 'avatar',
@@ -150,6 +153,7 @@ class Client implements ModelInterface, ArrayAccess
 'zip_code' => 'setZipCode',
 'email' => 'setEmail',
 'phone' => 'setPhone',
+'mobile' => 'setMobile',
 'website' => 'setWebsite',
 'company' => 'setCompany',
 'avatar' => 'setAvatar',
@@ -171,6 +175,7 @@ class Client implements ModelInterface, ArrayAccess
 'zip_code' => 'getZipCode',
 'email' => 'getEmail',
 'phone' => 'getPhone',
+'mobile' => 'getMobile',
 'website' => 'getWebsite',
 'company' => 'getCompany',
 'avatar' => 'getAvatar',
@@ -244,6 +249,7 @@ class Client implements ModelInterface, ArrayAccess
         $this->container['zip_code'] = isset($data['zip_code']) ? $data['zip_code'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
+        $this->container['mobile'] = isset($data['mobile']) ? $data['mobile'] : null;
         $this->container['website'] = isset($data['website']) ? $data['website'] : null;
         $this->container['company'] = isset($data['company']) ? $data['company'] : null;
         $this->container['avatar'] = isset($data['avatar']) ? $data['avatar'] : null;
@@ -513,6 +519,30 @@ class Client implements ModelInterface, ArrayAccess
     public function setPhone($phone)
     {
         $this->container['phone'] = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets mobile
+     *
+     * @return string
+     */
+    public function getMobile()
+    {
+        return $this->container['mobile'];
+    }
+
+    /**
+     * Sets mobile
+     *
+     * @param string $mobile mobile
+     *
+     * @return $this
+     */
+    public function setMobile($mobile)
+    {
+        $this->container['mobile'] = $mobile;
 
         return $this;
     }

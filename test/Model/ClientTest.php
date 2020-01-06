@@ -146,6 +146,13 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "mobile"
+     */
+    public function testPropertyMobile()
+    {
+    }
+
+    /**
      * Test attribute "website"
      */
     public function testPropertyWebsite()

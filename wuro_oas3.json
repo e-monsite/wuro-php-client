@@ -1855,6 +1855,9 @@
           "phone": {
             "type": "string"
           },
+          "mobile": {
+            "type": "string"
+          },
           "website": {
             "type": "string"
           },

@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **image** | [**\Wuro\Api\Model\ProductImage**](ProductImage.md) |  | [optional] 
 **url_ext** | **string** |  | [optional] 
 **files** | **object[]** |  | [optional] 
+**state** | **string** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -1753,6 +1753,13 @@
             "items": {
               "type": "object"
             }
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "",
+              "inactive"
+            ]
           }
         }
       },

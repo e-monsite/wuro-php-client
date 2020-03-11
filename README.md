@@ -98,6 +98,9 @@ Class | Method | HTTP request | Description
 *ProductsApi* | [**productProductIdGet**](docs/Api/ProductsApi.md#productproductidget) | **GET** /product/{productId} | 
 *ProductsApi* | [**productProductIdPatch**](docs/Api/ProductsApi.md#productproductidpatch) | **PATCH** /product/{productId} | 
 *ProductsApi* | [**productsGet**](docs/Api/ProductsApi.md#productsget) | **GET** /products | 
+*QuotesApi* | [**quotePost**](docs/Api/QuotesApi.md#quotepost) | **POST** /quote | 
+*QuotesApi* | [**quoteQuoteIdGet**](docs/Api/QuotesApi.md#quotequoteidget) | **GET** /quote/{quoteId} | 
+*QuotesApi* | [**quotesGet**](docs/Api/QuotesApi.md#quotesget) | **GET** /quotes | 
 
 ## Documentation For Models
 
@@ -134,6 +137,11 @@ Class | Method | HTTP request | Description
  - [ProductStock](docs/Model/ProductStock.md)
  - [ProductUpdatedResponse](docs/Model/ProductUpdatedResponse.md)
  - [ProductsResponse](docs/Model/ProductsResponse.md)
+ - [Quote](docs/Model/Quote.md)
+ - [QuoteCreatedResponse](docs/Model/QuoteCreatedResponse.md)
+ - [QuoteLine](docs/Model/QuoteLine.md)
+ - [QuoteResponse](docs/Model/QuoteResponse.md)
+ - [QuotesResponse](docs/Model/QuotesResponse.md)
  - [VatRate](docs/Model/VatRate.md)
  - [VatRatesResponse](docs/Model/VatRatesResponse.md)
 

@@ -312,6 +312,153 @@
         ]
       }
     },
+    "/quotes": {
+      "get": {
+        "tags": [
+          "Quotes"
+        ],
+        "description": "Returns all quotes",
+        "responses": {
+          "200": {
+            "description": "Quotes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuotesResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Credentials error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/quote/{quoteId}": {
+      "get": {
+        "tags": [
+          "Quotes"
+        ],
+        "description": "Retrieve an quote",
+        "parameters": [
+          {
+            "name": "quoteId",
+            "in": "path",
+            "description": "Quote ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Quote",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuoteResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Credentials error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Invoice not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/quote": {
+      "post": {
+        "tags": [
+          "Quotes"
+        ],
+        "description": "Add a quota",
+        "requestBody": {
+          "description": "quota to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Quote"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Quote created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuoteCreatedResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Quote supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication information is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/product-categories": {
       "get": {
         "tags": [
@@ -1552,6 +1699,445 @@
         "properties": {
           "new_invoice": {
             "$ref": "#/components/schemas/Invoice"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "QuoteLine": {
+        "type": "object",
+        "required": [
+          "title",
+          "description"
+        ],
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "reference": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "product": {
+            "type": "object"
+          },
+          "category": {
+            "type": "object"
+          },
+          "image": {
+            "type": "string"
+          },
+          "price_ht": {
+            "type": "number"
+          },
+          "price_ttc": {
+            "type": "number"
+          },
+          "price_ht_eur": {
+            "type": "number"
+          },
+          "price_ttc_eur": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "total_ht": {
+            "type": "number"
+          },
+          "tva": {
+            "type": "string"
+          },
+          "tva_rate": {
+            "type": "number"
+          },
+          "discount_ht": {
+            "type": "number"
+          },
+          "discount_type": {
+            "type": "string"
+          },
+          "page": {
+            "type": "number"
+          },
+          "order": {
+            "type": "number"
+          },
+          "url": {
+            "type": "string"
+          },
+          "analytical_code": {
+            "type": "string"
+          },
+          "globalDiscount": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Quote": {
+        "type": "object",
+        "required": [
+          "title",
+          "client_name",
+          "quote_lines"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "number": {
+            "type": "string"
+          },
+          "date": {
+            "type": "object"
+          },
+          "company": {
+            "type": "object"
+          },
+          "category": {
+            "type": "object"
+          },
+          "user": {
+            "type": "object"
+          },
+          "currency": {
+            "type": "object"
+          },
+          "payment_methods": {
+            "type": "object"
+          },
+          "shipping": {
+            "type": "object"
+          },
+          "quote_lines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QuoteLine"
+            },
+            "minItems": 1
+          },
+          "display_expeditor": {
+            "type": "boolean"
+          },
+          "num_tva": {
+            "type": "string"
+          },
+          "client_code": {
+            "type": "string"
+          },
+          "analytical_code": {
+            "type": "string"
+          },
+          "currency_rate": {
+            "type": "string"
+          },
+          "expiry_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "accept_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "payment_date": {
+            "type": "string"
+          },
+          "payment_method_name": {
+            "type": "string"
+          },
+          "late_penalty_rate": {
+            "type": "number"
+          },
+          "shipping_total_ht": {
+            "type": "string"
+          },
+          "shipping_tva_rate": {
+            "type": "string"
+          },
+          "shipping_total_tva": {
+            "type": "number"
+          },
+          "shipping_method": {
+            "type": "string"
+          },
+          "discount_total_ht": {
+            "type": "string"
+          },
+          "discount_total_type": {
+            "type": "string"
+          },
+          "total_ht_nodiscount": {
+            "type": "number"
+          },
+          "total_ht": {
+            "type": "number"
+          },
+          "total_ttc": {
+            "type": "number"
+          },
+          "total_tva": {
+            "type": "number"
+          },
+          "VATRates": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "comment": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "waiting",
+              "paid",
+              "notpaid",
+              "late",
+              "inactive"
+            ]
+          },
+          "sale_date": {
+            "type": "string"
+          },
+          "company_name": {
+            "type": "string"
+          },
+          "company_contact": {
+            "type": "string"
+          },
+          "company_siren": {
+            "type": "string"
+          },
+          "company_nic": {
+            "type": "string"
+          },
+          "company_share_capital": {
+            "type": "number"
+          },
+          "company_commercial_court": {
+            "type": "string"
+          },
+          "company_num_rcs": {
+            "type": "string"
+          },
+          "company_num_trade_directory": {
+            "type": "string"
+          },
+          "company_type": {
+            "type": "string"
+          },
+          "company_address": {
+            "type": "string"
+          },
+          "company_address_end": {
+            "type": "string"
+          },
+          "company_zip_code": {
+            "type": "string"
+          },
+          "company_city": {
+            "type": "string"
+          },
+          "company_country": {
+            "type": "string"
+          },
+          "company_phone": {
+            "type": "string"
+          },
+          "company_fax": {
+            "type": "string"
+          },
+          "company_email": {
+            "type": "string"
+          },
+          "company_cgv": {
+            "type": "string"
+          },
+          "company_include_cgv": {
+            "type": "boolean"
+          },
+          "client_name": {
+            "type": "string"
+          },
+          "client_contact": {
+            "type": "string"
+          },
+          "client_address": {
+            "type": "string"
+          },
+          "client_address_end": {
+            "type": "string"
+          },
+          "client_zip_code": {
+            "type": "string"
+          },
+          "client_city": {
+            "type": "string"
+          },
+          "client_country": {
+            "type": "string"
+          },
+          "client_phone": {
+            "type": "string"
+          },
+          "client_fax": {
+            "type": "string"
+          },
+          "client_email": {
+            "type": "string"
+          },
+          "client_tva": {
+            "type": "string"
+          },
+          "client_dom": {
+            "type": "boolean"
+          },
+          "delivery_name": {
+            "type": "string"
+          },
+          "delivery_contact": {
+            "type": "string"
+          },
+          "delivery_address": {
+            "type": "string"
+          },
+          "delivery_address_end": {
+            "type": "string"
+          },
+          "delivery_zip_code": {
+            "type": "string"
+          },
+          "delivery_city": {
+            "type": "string"
+          },
+          "delivery_country": {
+            "type": "string"
+          },
+          "delivery_phone": {
+            "type": "string"
+          },
+          "delivery_fax": {
+            "type": "string"
+          },
+          "delivery_email": {
+            "type": "string"
+          },
+          "display_rules": {
+            "type": "object"
+          },
+          "style": {
+            "type": "object"
+          },
+          "hasReduction": {
+            "type": "boolean"
+          },
+          "signature": {
+            "type": "object"
+          },
+          "external_file": {
+            "type": "string"
+          },
+          "pdf_link": {
+            "type": "string"
+          },
+          "external_url": {
+            "type": "string"
+          },
+          "payment_state": {
+            "type": "string"
+          },
+          "payments": {
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Payment"
+              }
+            }
+          },
+          "total_nettopay": {
+            "type": "number"
+          },
+          "fromquote": {
+            "type": "string"
+          },
+          "credit": {
+            "type": "boolean"
+          },
+          "acompte": {
+            "type": "boolean"
+          },
+          "documentModel": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "QuotesResponse": {
+        "required": [
+          "quotes",
+          "success"
+        ],
+        "properties": {
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Quote"
+            }
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "QuoteCreatedResponse": {
+        "required": [
+          "new_quote",
+          "success"
+        ],
+        "properties": {
+          "new_quote": {
+            "$ref": "#/components/schemas/Quote"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "True on success"
+          }
+        }
+      },
+      "QuoteResponse": {
+        "required": [
+          "quote",
+          "success"
+        ],
+        "properties": {
+          "new_quote": {
+            "$ref": "#/components/schemas/Quote"
           },
           "success": {
             "type": "boolean",

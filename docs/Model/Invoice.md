@@ -86,6 +86,7 @@ Name | Type | Description | Notes
 **signature** | **object** |  | [optional] 
 **external_file** | **string** |  | [optional] 
 **pdf_link** | **string** |  | [optional] 
+**html_link** | **string** |  | [optional] 
 **external_url** | **string** |  | [optional] 
 **payment_state** | **string** |  | [optional] 
 **payments** | [**\Wuro\Api\Model\Payment[][]**](array.md) |  | [optional] 

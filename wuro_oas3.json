@@ -1637,6 +1637,9 @@
           "pdf_link": {
             "type": "string"
           },
+          "html_link": {
+            "type": "string"
+          },
           "external_url": {
             "type": "string"
           },
@@ -2056,6 +2059,9 @@
             "type": "string"
           },
           "pdf_link": {
+            "type": "string"
+          },
+          "html_link": {
             "type": "string"
           },
           "external_url": {

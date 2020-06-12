@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **company** | **object** |  | [optional] 
 **category** | **object** |  | [optional] 
 **user** | **object** |  | [optional] 
-**currency** | **object** |  | [optional] 
 **payment_methods** | **object** |  | [optional] 
 **shipping** | **object** |  | [optional] 
 **quote_lines** | [**\Wuro\Api\Model\QuoteLine[]**](QuoteLine.md) |  | 

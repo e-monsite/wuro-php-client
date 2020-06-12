@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **company** | **object** |  | [optional] 
 **category** | **object** |  | [optional] 
 **user** | **object** |  | [optional] 
-**currency** | **object** |  | [optional] 
 **payment_methods** | **object** |  | [optional] 
 **shipping** | **object** |  | [optional] 
 **invoice_lines** | [**\Wuro\Api\Model\InvoiceLine[]**](InvoiceLine.md) |  | 
@@ -19,7 +18,6 @@ Name | Type | Description | Notes
 **num_tva** | **string** |  | [optional] 
 **client_code** | **string** |  | [optional] 
 **analytical_code** | **string** |  | [optional] 
-**currency_rate** | **string** |  | [optional] 
 **payment_expiry_date** | **string** |  | [optional] 
 **payment_date** | **string** |  | [optional] 
 **payment_method_name** | **string** |  | [optional] 
@@ -97,6 +95,9 @@ Name | Type | Description | Notes
 **document_model** | **string** |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**language** | **string** |  | [optional] 
+**currency** | **string** |  | [optional] 
+**currency_rate** | **float** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

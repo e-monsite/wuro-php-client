@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **page** | **float** |  | [optional] 
 **order** | **float** |  | [optional] 
 **url** | **string** |  | [optional] 
+**analytical_code** | **string** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

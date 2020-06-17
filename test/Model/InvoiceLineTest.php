@@ -200,4 +200,11 @@ class InvoiceLineTest extends \PHPUnit_Framework_TestCase
     public function testPropertyUrl()
     {
     }
+
+    /**
+     * Test attribute "analytical_code"
+     */
+    public function testPropertyAnalyticalCode()
+    {
+    }
 }

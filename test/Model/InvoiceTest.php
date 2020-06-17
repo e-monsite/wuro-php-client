@@ -454,6 +454,13 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "client_professional"
+     */
+    public function testPropertyClientProfessional()
+    {
+    }
+
+    /**
      * Test attribute "client_contact"
      */
     public function testPropertyClientContact()

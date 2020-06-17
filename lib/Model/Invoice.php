@@ -110,6 +110,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'company_cgv' => 'string',
 'company_include_cgv' => 'bool',
 'client_name' => 'string',
+'client_professional' => 'bool',
 'client_contact' => 'string',
 'client_address' => 'string',
 'client_address_end' => 'string',
@@ -212,6 +213,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'company_cgv' => null,
 'company_include_cgv' => null,
 'client_name' => null,
+'client_professional' => null,
 'client_contact' => null,
 'client_address' => null,
 'client_address_end' => null,
@@ -335,6 +337,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'company_cgv' => 'company_cgv',
 'company_include_cgv' => 'company_include_cgv',
 'client_name' => 'client_name',
+'client_professional' => 'client_professional',
 'client_contact' => 'client_contact',
 'client_address' => 'client_address',
 'client_address_end' => 'client_address_end',
@@ -437,6 +440,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'company_cgv' => 'setCompanyCgv',
 'company_include_cgv' => 'setCompanyIncludeCgv',
 'client_name' => 'setClientName',
+'client_professional' => 'setClientProfessional',
 'client_contact' => 'setClientContact',
 'client_address' => 'setClientAddress',
 'client_address_end' => 'setClientAddressEnd',
@@ -539,6 +543,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'company_cgv' => 'getCompanyCgv',
 'company_include_cgv' => 'getCompanyIncludeCgv',
 'client_name' => 'getClientName',
+'client_professional' => 'getClientProfessional',
 'client_contact' => 'getClientContact',
 'client_address' => 'getClientAddress',
 'client_address_end' => 'getClientAddressEnd',
@@ -714,6 +719,7 @@ self::STATE_INACTIVE,        ];
         $this->container['company_cgv'] = isset($data['company_cgv']) ? $data['company_cgv'] : null;
         $this->container['company_include_cgv'] = isset($data['company_include_cgv']) ? $data['company_include_cgv'] : null;
         $this->container['client_name'] = isset($data['client_name']) ? $data['client_name'] : null;
+        $this->container['client_professional'] = isset($data['client_professional']) ? $data['client_professional'] : null;
         $this->container['client_contact'] = isset($data['client_contact']) ? $data['client_contact'] : null;
         $this->container['client_address'] = isset($data['client_address']) ? $data['client_address'] : null;
         $this->container['client_address_end'] = isset($data['client_address_end']) ? $data['client_address_end'] : null;
@@ -2099,6 +2105,30 @@ self::STATE_INACTIVE,        ];
     public function setClientName($client_name)
     {
         $this->container['client_name'] = $client_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_professional
+     *
+     * @return bool
+     */
+    public function getClientProfessional()
+    {
+        return $this->container['client_professional'];
+    }
+
+    /**
+     * Sets client_professional
+     *
+     * @param bool $client_professional client_professional
+     *
+     * @return $this
+     */
+    public function setClientProfessional($client_professional)
+    {
+        $this->container['client_professional'] = $client_professional;
 
         return $this;
     }

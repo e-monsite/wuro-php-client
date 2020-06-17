@@ -73,7 +73,8 @@ class InvoiceLine implements ModelInterface, ArrayAccess
 'discount_type' => 'string',
 'page' => 'float',
 'order' => 'float',
-'url' => 'string'    ];
+'url' => 'string',
+'analytical_code' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -98,7 +99,8 @@ class InvoiceLine implements ModelInterface, ArrayAccess
 'discount_type' => null,
 'page' => null,
 'order' => null,
-'url' => null    ];
+'url' => null,
+'analytical_code' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -144,7 +146,8 @@ class InvoiceLine implements ModelInterface, ArrayAccess
 'discount_type' => 'discount_type',
 'page' => 'page',
 'order' => 'order',
-'url' => 'url'    ];
+'url' => 'url',
+'analytical_code' => 'analytical_code'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -169,7 +172,8 @@ class InvoiceLine implements ModelInterface, ArrayAccess
 'discount_type' => 'setDiscountType',
 'page' => 'setPage',
 'order' => 'setOrder',
-'url' => 'setUrl'    ];
+'url' => 'setUrl',
+'analytical_code' => 'setAnalyticalCode'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -194,7 +198,8 @@ class InvoiceLine implements ModelInterface, ArrayAccess
 'discount_type' => 'getDiscountType',
 'page' => 'getPage',
 'order' => 'getOrder',
-'url' => 'getUrl'    ];
+'url' => 'getUrl',
+'analytical_code' => 'getAnalyticalCode'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -272,6 +277,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess
         $this->container['page'] = isset($data['page']) ? $data['page'] : null;
         $this->container['order'] = isset($data['order']) ? $data['order'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['analytical_code'] = isset($data['analytical_code']) ? $data['analytical_code'] : null;
     }
 
     /**
@@ -732,6 +738,30 @@ class InvoiceLine implements ModelInterface, ArrayAccess
     public function setUrl($url)
     {
         $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets analytical_code
+     *
+     * @return string
+     */
+    public function getAnalyticalCode()
+    {
+        return $this->container['analytical_code'];
+    }
+
+    /**
+     * Sets analytical_code
+     *
+     * @param string $analytical_code analytical_code
+     *
+     * @return $this
+     */
+    public function setAnalyticalCode($analytical_code)
+    {
+        $this->container['analytical_code'] = $analytical_code;
 
         return $this;
     }

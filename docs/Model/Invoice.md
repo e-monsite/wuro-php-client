@@ -57,6 +57,7 @@ Name | Type | Description | Notes
 **company_cgv** | **string** |  | [optional] 
 **company_include_cgv** | **bool** |  | [optional] 
 **client_name** | **string** |  | 
+**client_professional** | **bool** |  | [optional] 
 **client_contact** | **string** |  | [optional] 
 **client_address** | **string** |  | [optional] 
 **client_address_end** | **string** |  | [optional] 

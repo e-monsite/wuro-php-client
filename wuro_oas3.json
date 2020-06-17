@@ -1362,6 +1362,9 @@
           },
           "url": {
             "type": "string"
+          },
+          "analytical_code": {
+            "type": "string"
           }
         }
       },
@@ -1549,6 +1552,9 @@
           },
           "client_name": {
             "type": "string"
+          },
+          "client_professional": {
+            "type": "boolean"
           },
           "client_contact": {
             "type": "string"

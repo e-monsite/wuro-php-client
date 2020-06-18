@@ -1696,7 +1696,12 @@
             "type": "number"
           },
           "custom_data": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+              "fields": {
+                "$ref": "#/components/schemas/InvoiceCustomDataFields"
+              }
+            }
           }
         }
       },

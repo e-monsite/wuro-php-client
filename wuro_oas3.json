@@ -2553,6 +2553,31 @@
             "description": "True on success"
           }
         }
+      },
+      "InvoiceCustomDataField": {
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "value"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "InvoiceCustomDataFields": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/InvoiceCustomDataField"
+        }
       }
     },
     "securitySchemes": {

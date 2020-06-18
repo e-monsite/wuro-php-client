@@ -1699,7 +1699,10 @@
             "type": "object",
             "properties": {
               "fields": {
-                "$ref": "#/components/schemas/InvoiceCustomDataFields"
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/InvoiceCustomDataField"
+                }
               }
             }
           }
@@ -2576,12 +2579,6 @@
           "value": {
             "type": "string"
           }
-        }
-      },
-      "InvoiceCustomDataFields": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/InvoiceCustomDataField"
         }
       }
     },

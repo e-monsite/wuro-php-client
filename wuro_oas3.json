@@ -1694,6 +1694,9 @@
           },
           "currency_rate": {
             "type": "number"
+          },
+          "custom_data": {
+            "type": "object"
           }
         }
       },

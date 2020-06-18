@@ -119,6 +119,8 @@ Class | Method | HTTP request | Description
  - [ErrorResponse](docs/Model/ErrorResponse.md)
  - [Invoice](docs/Model/Invoice.md)
  - [InvoiceCreatedResponse](docs/Model/InvoiceCreatedResponse.md)
+ - [InvoiceCustomDataField](docs/Model/InvoiceCustomDataField.md)
+ - [InvoiceCustomDataFields](docs/Model/InvoiceCustomDataFields.md)
  - [InvoiceLine](docs/Model/InvoiceLine.md)
  - [InvoiceResponse](docs/Model/InvoiceResponse.md)
  - [Payment](docs/Model/Payment.md)

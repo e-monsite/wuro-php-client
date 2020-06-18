@@ -767,4 +767,11 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
     public function testPropertyCurrencyRate()
     {
     }
+
+    /**
+     * Test attribute "custom_data"
+     */
+    public function testPropertyCustomData()
+    {
+    }
 }

@@ -154,7 +154,8 @@ class Invoice implements ModelInterface, ArrayAccess
 'updated_at' => '\DateTime',
 'language' => 'string',
 'currency' => 'string',
-'currency_rate' => 'float'    ];
+'currency_rate' => 'float',
+'custom_data' => 'object'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -260,7 +261,8 @@ class Invoice implements ModelInterface, ArrayAccess
 'updated_at' => 'date',
 'language' => null,
 'currency' => null,
-'currency_rate' => null    ];
+'currency_rate' => null,
+'custom_data' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -387,7 +389,8 @@ class Invoice implements ModelInterface, ArrayAccess
 'updated_at' => 'updatedAt',
 'language' => 'language',
 'currency' => 'currency',
-'currency_rate' => 'currency_rate'    ];
+'currency_rate' => 'currency_rate',
+'custom_data' => 'custom_data'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -493,7 +496,8 @@ class Invoice implements ModelInterface, ArrayAccess
 'updated_at' => 'setUpdatedAt',
 'language' => 'setLanguage',
 'currency' => 'setCurrency',
-'currency_rate' => 'setCurrencyRate'    ];
+'currency_rate' => 'setCurrencyRate',
+'custom_data' => 'setCustomData'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -599,7 +603,8 @@ class Invoice implements ModelInterface, ArrayAccess
 'updated_at' => 'getUpdatedAt',
 'language' => 'getLanguage',
 'currency' => 'getCurrency',
-'currency_rate' => 'getCurrencyRate'    ];
+'currency_rate' => 'getCurrencyRate',
+'custom_data' => 'getCustomData'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -779,6 +784,7 @@ self::STATE_INACTIVE,        ];
         $this->container['language'] = isset($data['language']) ? $data['language'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['currency_rate'] = isset($data['currency_rate']) ? $data['currency_rate'] : null;
+        $this->container['custom_data'] = isset($data['custom_data']) ? $data['custom_data'] : null;
     }
 
     /**
@@ -3203,6 +3209,30 @@ self::STATE_INACTIVE,        ];
     public function setCurrencyRate($currency_rate)
     {
         $this->container['currency_rate'] = $currency_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_data
+     *
+     * @return object
+     */
+    public function getCustomData()
+    {
+        return $this->container['custom_data'];
+    }
+
+    /**
+     * Sets custom_data
+     *
+     * @param object $custom_data custom_data
+     *
+     * @return $this
+     */
+    public function setCustomData($custom_data)
+    {
+        $this->container['custom_data'] = $custom_data;
 
         return $this;
     }

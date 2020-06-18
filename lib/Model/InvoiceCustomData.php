@@ -56,7 +56,7 @@ class InvoiceCustomData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'fields' => '\Wuro\Api\Model\InvoiceCustomDataFields'    ];
+        'fields' => '\Wuro\Api\Model\InvoiceCustomDataField[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -199,7 +199,7 @@ class InvoiceCustomData implements ModelInterface, ArrayAccess
     /**
      * Gets fields
      *
-     * @return \Wuro\Api\Model\InvoiceCustomDataFields
+     * @return \Wuro\Api\Model\InvoiceCustomDataField[]
      */
     public function getFields()
     {
@@ -209,7 +209,7 @@ class InvoiceCustomData implements ModelInterface, ArrayAccess
     /**
      * Sets fields
      *
-     * @param \Wuro\Api\Model\InvoiceCustomDataFields $fields fields
+     * @param \Wuro\Api\Model\InvoiceCustomDataField[] $fields fields
      *
      * @return $this
      */

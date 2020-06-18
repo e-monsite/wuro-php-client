@@ -121,7 +121,6 @@ Class | Method | HTTP request | Description
  - [InvoiceCreatedResponse](docs/Model/InvoiceCreatedResponse.md)
  - [InvoiceCustomData](docs/Model/InvoiceCustomData.md)
  - [InvoiceCustomDataField](docs/Model/InvoiceCustomDataField.md)
- - [InvoiceCustomDataFields](docs/Model/InvoiceCustomDataFields.md)
  - [InvoiceLine](docs/Model/InvoiceLine.md)
  - [InvoiceResponse](docs/Model/InvoiceResponse.md)
  - [Payment](docs/Model/Payment.md)

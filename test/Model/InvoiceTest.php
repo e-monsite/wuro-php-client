@@ -412,6 +412,13 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "company_country_code"
+     */
+    public function testPropertyCompanyCountryCode()
+    {
+    }
+
+    /**
      * Test attribute "company_phone"
      */
     public function testPropertyCompanyPhone()
@@ -503,6 +510,13 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "client_country_code"
+     */
+    public function testPropertyClientCountryCode()
+    {
+    }
+
+    /**
      * Test attribute "client_phone"
      */
     public function testPropertyClientPhone()
@@ -583,6 +597,13 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      * Test attribute "delivery_country"
      */
     public function testPropertyDeliveryCountry()
+    {
+    }
+
+    /**
+     * Test attribute "delivery_country_code"
+     */
+    public function testPropertyDeliveryCountryCode()
     {
     }
 

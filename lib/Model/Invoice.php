@@ -104,6 +104,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'company_zip_code' => 'string',
 'company_city' => 'string',
 'company_country' => 'string',
+'company_country_code' => 'string',
 'company_phone' => 'string',
 'company_fax' => 'string',
 'company_email' => 'string',
@@ -117,6 +118,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'client_zip_code' => 'string',
 'client_city' => 'string',
 'client_country' => 'string',
+'client_country_code' => 'string',
 'client_phone' => 'string',
 'client_fax' => 'string',
 'client_email' => 'string',
@@ -129,6 +131,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'delivery_zip_code' => 'string',
 'delivery_city' => 'string',
 'delivery_country' => 'string',
+'delivery_country_code' => 'string',
 'delivery_phone' => 'string',
 'delivery_fax' => 'string',
 'delivery_email' => 'string',
@@ -207,6 +210,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'company_zip_code' => null,
 'company_city' => null,
 'company_country' => null,
+'company_country_code' => null,
 'company_phone' => null,
 'company_fax' => null,
 'company_email' => null,
@@ -220,6 +224,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'client_zip_code' => null,
 'client_city' => null,
 'client_country' => null,
+'client_country_code' => null,
 'client_phone' => null,
 'client_fax' => null,
 'client_email' => null,
@@ -232,6 +237,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'delivery_zip_code' => null,
 'delivery_city' => null,
 'delivery_country' => null,
+'delivery_country_code' => null,
 'delivery_phone' => null,
 'delivery_fax' => null,
 'delivery_email' => null,
@@ -331,6 +337,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'company_zip_code' => 'company_zip_code',
 'company_city' => 'company_city',
 'company_country' => 'company_country',
+'company_country_code' => 'company_country_code',
 'company_phone' => 'company_phone',
 'company_fax' => 'company_fax',
 'company_email' => 'company_email',
@@ -344,6 +351,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'client_zip_code' => 'client_zip_code',
 'client_city' => 'client_city',
 'client_country' => 'client_country',
+'client_country_code' => 'client_country_code',
 'client_phone' => 'client_phone',
 'client_fax' => 'client_fax',
 'client_email' => 'client_email',
@@ -356,6 +364,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'delivery_zip_code' => 'delivery_zip_code',
 'delivery_city' => 'delivery_city',
 'delivery_country' => 'delivery_country',
+'delivery_country_code' => 'delivery_country_code',
 'delivery_phone' => 'delivery_phone',
 'delivery_fax' => 'delivery_fax',
 'delivery_email' => 'delivery_email',
@@ -434,6 +443,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'company_zip_code' => 'setCompanyZipCode',
 'company_city' => 'setCompanyCity',
 'company_country' => 'setCompanyCountry',
+'company_country_code' => 'setCompanyCountryCode',
 'company_phone' => 'setCompanyPhone',
 'company_fax' => 'setCompanyFax',
 'company_email' => 'setCompanyEmail',
@@ -447,6 +457,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'client_zip_code' => 'setClientZipCode',
 'client_city' => 'setClientCity',
 'client_country' => 'setClientCountry',
+'client_country_code' => 'setClientCountryCode',
 'client_phone' => 'setClientPhone',
 'client_fax' => 'setClientFax',
 'client_email' => 'setClientEmail',
@@ -459,6 +470,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'delivery_zip_code' => 'setDeliveryZipCode',
 'delivery_city' => 'setDeliveryCity',
 'delivery_country' => 'setDeliveryCountry',
+'delivery_country_code' => 'setDeliveryCountryCode',
 'delivery_phone' => 'setDeliveryPhone',
 'delivery_fax' => 'setDeliveryFax',
 'delivery_email' => 'setDeliveryEmail',
@@ -537,6 +549,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'company_zip_code' => 'getCompanyZipCode',
 'company_city' => 'getCompanyCity',
 'company_country' => 'getCompanyCountry',
+'company_country_code' => 'getCompanyCountryCode',
 'company_phone' => 'getCompanyPhone',
 'company_fax' => 'getCompanyFax',
 'company_email' => 'getCompanyEmail',
@@ -550,6 +563,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'client_zip_code' => 'getClientZipCode',
 'client_city' => 'getClientCity',
 'client_country' => 'getClientCountry',
+'client_country_code' => 'getClientCountryCode',
 'client_phone' => 'getClientPhone',
 'client_fax' => 'getClientFax',
 'client_email' => 'getClientEmail',
@@ -562,6 +576,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'delivery_zip_code' => 'getDeliveryZipCode',
 'delivery_city' => 'getDeliveryCity',
 'delivery_country' => 'getDeliveryCountry',
+'delivery_country_code' => 'getDeliveryCountryCode',
 'delivery_phone' => 'getDeliveryPhone',
 'delivery_fax' => 'getDeliveryFax',
 'delivery_email' => 'getDeliveryEmail',
@@ -713,6 +728,7 @@ self::STATE_INACTIVE,        ];
         $this->container['company_zip_code'] = isset($data['company_zip_code']) ? $data['company_zip_code'] : null;
         $this->container['company_city'] = isset($data['company_city']) ? $data['company_city'] : null;
         $this->container['company_country'] = isset($data['company_country']) ? $data['company_country'] : null;
+        $this->container['company_country_code'] = isset($data['company_country_code']) ? $data['company_country_code'] : null;
         $this->container['company_phone'] = isset($data['company_phone']) ? $data['company_phone'] : null;
         $this->container['company_fax'] = isset($data['company_fax']) ? $data['company_fax'] : null;
         $this->container['company_email'] = isset($data['company_email']) ? $data['company_email'] : null;
@@ -726,6 +742,7 @@ self::STATE_INACTIVE,        ];
         $this->container['client_zip_code'] = isset($data['client_zip_code']) ? $data['client_zip_code'] : null;
         $this->container['client_city'] = isset($data['client_city']) ? $data['client_city'] : null;
         $this->container['client_country'] = isset($data['client_country']) ? $data['client_country'] : null;
+        $this->container['client_country_code'] = isset($data['client_country_code']) ? $data['client_country_code'] : null;
         $this->container['client_phone'] = isset($data['client_phone']) ? $data['client_phone'] : null;
         $this->container['client_fax'] = isset($data['client_fax']) ? $data['client_fax'] : null;
         $this->container['client_email'] = isset($data['client_email']) ? $data['client_email'] : null;
@@ -738,6 +755,7 @@ self::STATE_INACTIVE,        ];
         $this->container['delivery_zip_code'] = isset($data['delivery_zip_code']) ? $data['delivery_zip_code'] : null;
         $this->container['delivery_city'] = isset($data['delivery_city']) ? $data['delivery_city'] : null;
         $this->container['delivery_country'] = isset($data['delivery_country']) ? $data['delivery_country'] : null;
+        $this->container['delivery_country_code'] = isset($data['delivery_country_code']) ? $data['delivery_country_code'] : null;
         $this->container['delivery_phone'] = isset($data['delivery_phone']) ? $data['delivery_phone'] : null;
         $this->container['delivery_fax'] = isset($data['delivery_fax']) ? $data['delivery_fax'] : null;
         $this->container['delivery_email'] = isset($data['delivery_email']) ? $data['delivery_email'] : null;
@@ -1966,6 +1984,30 @@ self::STATE_INACTIVE,        ];
     }
 
     /**
+     * Gets company_country_code
+     *
+     * @return string
+     */
+    public function getCompanyCountryCode()
+    {
+        return $this->container['company_country_code'];
+    }
+
+    /**
+     * Sets company_country_code
+     *
+     * @param string $company_country_code company_country_code
+     *
+     * @return $this
+     */
+    public function setCompanyCountryCode($company_country_code)
+    {
+        $this->container['company_country_code'] = $company_country_code;
+
+        return $this;
+    }
+
+    /**
      * Gets company_phone
      *
      * @return string
@@ -2278,6 +2320,30 @@ self::STATE_INACTIVE,        ];
     }
 
     /**
+     * Gets client_country_code
+     *
+     * @return string
+     */
+    public function getClientCountryCode()
+    {
+        return $this->container['client_country_code'];
+    }
+
+    /**
+     * Sets client_country_code
+     *
+     * @param string $client_country_code client_country_code
+     *
+     * @return $this
+     */
+    public function setClientCountryCode($client_country_code)
+    {
+        $this->container['client_country_code'] = $client_country_code;
+
+        return $this;
+    }
+
+    /**
      * Gets client_phone
      *
      * @return string
@@ -2561,6 +2627,30 @@ self::STATE_INACTIVE,        ];
     public function setDeliveryCountry($delivery_country)
     {
         $this->container['delivery_country'] = $delivery_country;
+
+        return $this;
+    }
+
+    /**
+     * Gets delivery_country_code
+     *
+     * @return string
+     */
+    public function getDeliveryCountryCode()
+    {
+        return $this->container['delivery_country_code'];
+    }
+
+    /**
+     * Sets delivery_country_code
+     *
+     * @param string $delivery_country_code delivery_country_code
+     *
+     * @return $this
+     */
+    public function setDeliveryCountryCode($delivery_country_code)
+    {
+        $this->container['delivery_country_code'] = $delivery_country_code;
 
         return $this;
     }

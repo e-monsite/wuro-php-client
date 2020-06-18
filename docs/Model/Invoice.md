@@ -102,7 +102,7 @@ Name | Type | Description | Notes
 **language** | **string** |  | [optional] 
 **currency** | **string** |  | [optional] 
 **currency_rate** | **float** |  | [optional] 
-**custom_data** | **object** |  | [optional] 
+**custom_data** | [**\Wuro\Api\Model\InvoiceCustomData**](InvoiceCustomData.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

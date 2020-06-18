@@ -155,7 +155,7 @@ class Invoice implements ModelInterface, ArrayAccess
 'language' => 'string',
 'currency' => 'string',
 'currency_rate' => 'float',
-'custom_data' => 'object'    ];
+'custom_data' => '\Wuro\Api\Model\InvoiceCustomData'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -3216,7 +3216,7 @@ self::STATE_INACTIVE,        ];
     /**
      * Gets custom_data
      *
-     * @return object
+     * @return \Wuro\Api\Model\InvoiceCustomData
      */
     public function getCustomData()
     {
@@ -3226,7 +3226,7 @@ self::STATE_INACTIVE,        ];
     /**
      * Sets custom_data
      *
-     * @param object $custom_data custom_data
+     * @param \Wuro\Api\Model\InvoiceCustomData $custom_data custom_data
      *
      * @return $this
      */

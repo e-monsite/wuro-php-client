@@ -2375,7 +2375,7 @@
           "state": {
             "type": "string",
             "enum": [
-              "",
+              "active",
               "inactive"
             ]
           }

@@ -74,7 +74,9 @@ class InvoiceLine implements ModelInterface, ArrayAccess
 'page' => 'float',
 'order' => 'float',
 'url' => 'string',
-'analytical_code' => 'string'    ];
+'analytical_code' => 'string',
+'tvaCountCode' => 'string',
+'tvaCountName' => 'string' ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -100,7 +102,9 @@ class InvoiceLine implements ModelInterface, ArrayAccess
 'page' => null,
 'order' => null,
 'url' => null,
-'analytical_code' => null    ];
+'analytical_code' => null,
+'tvaCountCode' => null,
+'tvaCountName' => null ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -147,7 +151,9 @@ class InvoiceLine implements ModelInterface, ArrayAccess
 'page' => 'page',
 'order' => 'order',
 'url' => 'url',
-'analytical_code' => 'analytical_code'    ];
+'analytical_code' => 'analytical_code',
+'tvaCountCode' => 'tvaCountCode',
+'tvaCountName' => 'tvaCountName'];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -173,7 +179,9 @@ class InvoiceLine implements ModelInterface, ArrayAccess
 'page' => 'setPage',
 'order' => 'setOrder',
 'url' => 'setUrl',
-'analytical_code' => 'setAnalyticalCode'    ];
+'analytical_code' => 'setAnalyticalCode',
+'tvaCountCode' => 'setTvaCountCode',
+'tvaCountName' => 'setTvaCountName'];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -199,7 +207,9 @@ class InvoiceLine implements ModelInterface, ArrayAccess
 'page' => 'getPage',
 'order' => 'getOrder',
 'url' => 'getUrl',
-'analytical_code' => 'getAnalyticalCode'    ];
+'analytical_code' => 'getAnalyticalCode',
+'tvaCountCode' => 'getTvaCountCode',
+'tvaCountName' => 'getTvaCountName'];
 
     /**
      * Array of attributes where the key is the local name,
@@ -278,6 +288,8 @@ class InvoiceLine implements ModelInterface, ArrayAccess
         $this->container['order'] = isset($data['order']) ? $data['order'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['analytical_code'] = isset($data['analytical_code']) ? $data['analytical_code'] : null;
+        $this->container['tvaCountCode'] = isset($data['tvaCountCode']) ? $data['tvaCountCode'] : null;
+        $this->container['tvaCountName'] = isset($data['tvaCountName']) ? $data['tvaCountName'] : null;
     }
 
     /**
@@ -765,6 +777,55 @@ class InvoiceLine implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets tvaCountCode
+     *
+     * @return string
+     */
+    public function getTvaCountCode()
+    {
+        return $this->container['tvaCountCode'];
+    }
+
+    /**
+     * Sets tvaCountCode
+     *
+     * @param string $tvaCountCode tvaCountCode
+     *
+     * @return $this
+     */
+    public function setTvaCountCode($tvaCountCode)
+    {
+        $this->container['tvaCountCode'] = $tvaCountCode;
+
+        return $this;
+    }
+
+    /**
+     * Gets tvaCountName
+     *
+     * @return string
+     */
+    public function getTvaCountName()
+    {
+        return $this->container['tvaCountName'];
+    }
+
+    /**
+     * Sets tvaCountName
+     *
+     * @param string $tvaCountName tvaCountName
+     *
+     * @return $this
+     */
+    public function setTvaCountName($tvaCountName)
+    {
+        $this->container['tvaCountName'] = $tvaCountName;
+
+        return $this;
+    }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
